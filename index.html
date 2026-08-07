@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supply Chain 2026 · Interactive Research Edition</title>
+<meta name="description" content="Supply chain management, mid-2026: a $39B software market being rebuilt around agentic AI while tariffs, chokepoints and carbon pricing rewire the physical network it plans.">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* site-specific: keep the subtitle column clear of the right-side cover art */
+  .cover-sub { max-width: 660px; }
+  /* language toggle — sits above the rail's left edge, clears the cover art */
+  #lang-toggle {
+    position: fixed; top: 16px; right: calc(var(--railw) + 18px); z-index: 90;
+    font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+    padding: 7px 15px; border: 1.2px solid var(--ink); background: #fff; color: var(--ink);
+    cursor: pointer; transition: background .2s ease, color .2s ease;
+  }
+  #lang-toggle:hover { background: var(--ink); color: #fff; }
+</style>
+</head>
+<body>
+
+<button id="lang-toggle" type="button">中文</button>
+
+<nav id="era-rail" aria-label="Section navigation">
+  <div class="rail-year" id="rail-year">2026</div>
+  <div class="rail-track" id="rail-track"></div>
+</nav>
+
+<!-- ═══ Cover · four-state container-ship engine ═══ -->
+<header id="cover">
+  <canvas id="cover-canvas"></canvas>
+  <canvas id="cover-canvas-x" style="display:none"></canvas>
+  <canvas id="cover-canvas-w" style="display:none"></canvas>
+  <div class="cover-inner">
+    <p class="cover-kicker" data-cn="行业深度研究 · 数据截至 2026-07-17">SECTOR DEEP DIVE · DATA AS OF 2026-07-17</p>
+    <h1 class="cover-title" data-cn='重构中的网络，<br><span class="cover-num">价值390亿美元的大脑</span>'>The rewired network,<br><span class="cover-num">the $39B brain</span></h1>
+    <p class="cover-sub" data-cn="2026年年中的供应链管理：谁在搬运世界的货物，以及软件如何日益决定“怎么搬”">Supply chain management at mid-2026: who moves the world's goods, and the software increasingly deciding how</p>
+    <p class="cover-lede" data-cn="实体网络正在被政策重新定价——15%的美欧基准关税、半封锁的苏伊士运河、以及已有现金成本的碳。计划层正围绕智能体AI重建：51%的供应链负责人已在试点自主决策智能体。市场已经察觉：物流股年初至今上涨两位数，而两只纯软件股近乎持平。本报告描绘这场重构——逐个市场、逐个咽喉要道、逐个情景。">The physical network is being re-priced by policy — a 15% EU–US tariff baseline, a half-blockaded Suez, and carbon that now has a cash cost. The planning layer is being rebuilt around agentic AI, with 51% of supply-chain officers already piloting autonomous decision agents. The market has noticed: logistics equities are up double digits YTD while the two pure software names sit near flat. This report maps the rewiring — market by market, chokepoint by chokepoint, scenario by scenario.</p>
+    <div class="cover-chips">
+      <button class="chip" data-goto="#sec-exec" data-cn="核心发现">Key findings</button>
+      <button class="chip" data-goto="#sec-overview" data-cn="行业综述">Industry overview</button>
+      <button class="chip" data-goto="#sec-dynamics" data-cn="行业动态">Industry dynamics</button>
+      <button class="chip" data-goto="#sec-markets" data-cn="市场表现">Market performance</button>
+      <button class="chip" data-goto="#sec-topics" data-cn="热门议题">Hot topics</button>
+      <button class="chip" data-goto="#sec-trends" data-cn="重点趋势">Key trends</button>
+      <button class="chip" data-goto="#sec-verdict" data-cn="结论">Verdict</button>
+    </div>
+    <p class="cover-anchor" data-cn="证据分级：公司一手披露 &gt; 交叉核验 &gt; 券商转述 &gt; 推算值[已标注] · 无评级、无目标价">Evidence graded: company primary &gt; cross-check &gt; broker relay &gt; derived [flagged] · No ratings, no price targets</p>
+    <div class="cover-mode" id="cover-mode" aria-label="Cover artwork variant">
+      <button data-mode="rec" class="on" data-cn="A · 堆场递归，层层向上">A · The yard, all the way up</button>
+      <button data-mode="x" data-cn="B · 船体，分层解构">B · The ship, in layers</button>
+      <button data-mode="w" data-cn="C · 蓝图线框">C · The blueprint</button>
+      <button data-mode="d" data-cn="D · 开箱">D · Unboxing</button>
+    </div>
+    <div class="scroll-hint"><span></span><em data-cn="滚动" style="font-style:normal">SCROLL</em></div>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══ §0 Executive summary ═══ -->
+<section id="sec-exec" class="band" data-win="frame">
+  <div class="prose">
+    <p class="sec-no" data-cn="§0 · 核心发现">§0 · Key findings</p>
+    <h2 data-cn="一艘船，八项测量">One ship, eight measurements</h2>
+    <p class="dek" data-cn="把今年年中所有重要的数字，挂在行业最具辨识度的机器上、它们真实会被读取的位置。">Every number that matters this mid-year, hung where it would physically be measured on the industry's most recognizable machine.</p>
+    <p data-cn="2026年年中的供应链管理，是两个以不同速度运转的行业。实体层——船舶、港口、仓库、卡车，年产值约<b>11.97万亿美元</b>——正在被政治重新定价：7月1日起美欧之间<b>15%的基准关税</b>、苏伊士通行量仍比危机前<b>低约60%</b>、以及1月1日起成为现金成本的碳边境费。计划层——年增速<b>+10.7%</b>、规模<b>392亿美元</b>的SCM软件市场——正围绕智能体AI重建，速度快于以往任何一次平台迁移：<b>41%</b>的供应链员工已在日常工作中使用AI，<b>51%</b>的首席供应链官正在试点或部署“能行动、而非仅建议”的智能体。股票市场已选出近期赢家：资产搬运者年初至今上涨14–47%，而两只纯软件股持平至下跌。">Supply chain management in mid-2026 is two industries moving at different speeds. The physical layer — ships, ports, warehouses, trucks, worth roughly <b>$11.97 trillion</b> a year — is being re-priced by politics: a <b>15% baseline tariff</b> between the US and EU since July 1, Suez transits still <b>~60% below</b> pre-crisis levels, and a carbon border charge that became a cash cost on January 1. The planning layer — the <b>$39.2B</b> SCM software market growing at <b>+10.7%</b> a year — is being rebuilt around agentic AI faster than any prior platform shift: <b>41%</b> of supply-chain staff already use AI daily, and <b>51%</b> of chief supply-chain officers are piloting or deploying agents that act, not just advise. The equity market has picked its near-term winner: asset movers are up 14–47% YTD while the two pure software names are flat to down.</p>
+    <p data-cn="下图的船承载着本报告最硬的八个数字，位置正是它们真实会被读取之处——吃水刻度对应运价，舰桥对应正在掌舵决策的AI，尾迹对应消失的苏伊士通行。点击任意位置查看依据与注明日期的来源。报告其余部分逐一展开：§1为行业定量，§2复盘形成今日格局的时间线，§3将市场标记至7月17日，§4为五大热议议题评级，§5铺陈趋势与情景，§6权衡结论。">The ship below carries this report's eight hardest numbers at the sites where they would genuinely be read — the draft marks for freight rates, the bridge for the AI now steering decisions, the wake for the missing Suez transits. Click any site for its basis and dated source. The rest of the report unpacks each one: §1 sizes the industry, §2 walks the timeline that produced it, §3 marks the market to July 17, §4 grades the five hottest debates, §5 lays out the trends and the scenarios, and §6 weighs the verdict.</p>
+  </div>
+  <div class="wide xl"><div id="ship-chart" class="chart-frame"></div></div>
+</section>
+
+<!-- ═══ §1 Industry overview ═══ -->
+<section id="sec-overview" class="band" data-win="overview">
+  <div class="prose">
+    <p class="sec-no" data-cn="§1 · 行业综述 · Industry overview">§1 · Industry overview · 行业综述</p>
+    <h2 data-cn="万亿美元的身躯，390亿美元的大脑">A trillion-dollar body, a thirty-nine-billion-dollar brain</h2>
+    <p class="dek" data-cn="如实丈量行业的各个层级：物流是经济的循环系统；SCM软件是那个体积小、增长快、负责规划的器官。">The industry's layers, sized honestly: logistics is the economy's circulatory system; SCM software is the small, fast-growing organ that plans it.</p>
+    <p data-cn="全球物流——运输、仓储及围绕它们的服务——是<b>11.97万亿美元</b>的年度市场，约相当于全球GDP的十分之一。其中，外包物流（3PL）占<b>1.8万亿美元</b>，并随着货主用资产换灵活性继续提升份额。本报告所称的SCM层——计划、执行、仓储/运输/订单管理、采购与可视化软件——规模小得多，增长却快得多：<b>2025年353亿美元、2026年392亿美元，预计2035年达976亿美元，复合年增速+10.7%</b>。仓储自动化——软件的钢铁兄弟——另有<b>约290亿美元</b>，以15%左右的速度复合增长。">Global logistics — transport, warehousing and the services wrapped around them — is a <b>$11.97T</b> annual market, roughly a tenth of world GDP. Within it, outsourced logistics (3PL) accounts for <b>$1.8T</b> and keeps taking share as shippers trade assets for flexibility. The layer this report calls SCM — planning, execution, warehouse/transport/order management, procurement and visibility software — is much smaller and growing much faster: <b>$35.3B in 2025, $39.2B in 2026, and a projected $97.6B by 2035 at +10.7% CAGR</b>. Warehouse automation, the software's steel sibling, adds another <b>~$29B</b> compounding in the mid-teens.</p>
+    <p data-cn="结构遵循一条简单的规律：离物理原子越近的层级，体量越大、速度越慢；离决策越近，体量越小、速度越快。海运承运人与包裹网络资本密集、周期性强、集中度高——马士基、DHL、UPS与FedEx锚定了公开股权版图。货代与经纪（Expeditors、C.H. Robinson）轻资产、重人力，如今自动化速度最快。合同物流（GXO）居中。而软件层——上市纯标的Manhattan Associates，及其身后的Blue Yonder、Kinaxis、o9、SAP与Oracle——出售的是“协调的利润率”。下方的相邻市场表与Top-25排名，展示了当前谁最擅长协调。">Structure follows a simple rule: the closer a layer sits to physical atoms, the bigger and slower it is; the closer to decisions, the smaller and faster. Ocean carriers and parcel networks are capital-heavy, cyclical and consolidated — Maersk, DHL, UPS and FedEx anchor the public-equity map. Freight forwarding and brokerage (Expeditors, C.H. Robinson) are asset-light, people-heavy and now automating fastest. Contract logistics (GXO) sits between. And the software tier — Manhattan Associates the listed pure play, Blue Yonder, Kinaxis, o9, SAP and Oracle behind it — sells the margin of coordination. The adjacent-markets table and the Top-25 ranking below show who currently does coordination best.</p>
+  </div>
+  <div class="wide xl"><div id="iso-chart" class="chart-frame"></div></div>
+  <div class="wide">
+    <table class="dt" id="adj-table">
+      <thead><tr><th data-cn="相邻市场">ADJACENT MARKET</th><th data-cn="2025年规模">2025 SIZE</th><th data-cn="复合增速">CAGR</th><th data-cn="定义">WHAT IT IS</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <div class="prose">
+    <p data-cn="Gartner 2026年供应链Top 25——行业基准记分卡，综合经营表现与同行及分析师意见——将<b>施耐德电气</b>连续第二年列为第1名，<b>英伟达</b>第2、<b>沃尔玛</b>第3。2026年排名的主线非常明确：AI驱动的协同编排已成为决定性差异化因素，超越了成本与服务等传统优势。前十名如下：">Gartner's 2026 Supply Chain Top 25 — the industry's benchmark scorecard, blending business performance with peer and analyst opinion — put <b>Schneider Electric</b> at #1 for a second straight year, with <b>NVIDIA</b> at #2 and <b>Walmart</b> at #3. The through-line of the 2026 ranking is explicit: AI-driven orchestration is now the decisive differentiator, ahead of the classic virtues of cost and service. The first ten:</p>
+  </div>
+  <div class="wide">
+    <table class="dt" id="top25-table">
+      <thead><tr><th>#</th><th data-cn="公司">COMPANY</th><th data-cn="得分">SCORE</th><th data-cn="备注">NOTE</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <p class="chart-src" data-cn="来源 · Gartner供应链Top 25，2026年版（K12） · 完整25名见来源登记册">Source · Gartner Supply Chain Top 25, 2026 edition (K12) · full 25 in sources register</p>
+  </div>
+</section>
+
+<!-- ═══ §2 Industry dynamics ═══ -->
+<section id="sec-dynamics" class="band" data-win="dynamics">
+  <div class="prose">
+    <p class="sec-no" data-cn="§2 · 行业动态 · Industry dynamics">§2 · Industry dynamics · 行业动态</p>
+    <h2 data-cn="重塑版图的32个月">Thirty-two months that rewired the map</h2>
+    <p class="dek" data-cn="从第一次胡塞袭击到美欧关税框架——把“效率优先”变成“韧性优先”的完整序列。">From the first Houthi attack to the EU–US tariff framework — the sequence that turned efficiency-first into resilience-first.</p>
+    <p data-cn="行业的运营假设是按特定顺序破裂的。首先是实体冲击：2023年11月起的红海绕行使亚欧航线增加10–14天，且从未完全恢复——马士基的MECL航线直到2026年3月才恢复苏伊士通行，多数运力仍绕行好望角。随后是政策冲击：2025年的美国关税计划、4月“解放日”高点，最终是<b>2026年7月1日生效的15%美欧基准关税</b>。第三是合规成本冲击：CBAM证书自2026年1月1日起开始付费，而欧盟《综合指令》同时将CSRD的适用范围收窄约80%——约束之处碳成本更高，未约束之处报告负担更轻。">The industry's operating assumptions broke in a specific order. Physical shock came first: the Red Sea diversion from November 2023 added 10–14 days to Asia–Europe and never fully resolved — Maersk's MECL string only resumed Suez transits in March 2026, and most capacity still rounds the Cape. Policy shock followed: the US tariff program of 2025, the April "Liberation Day" peak, and finally the <b>15% EU–US baseline that took force on July 1, 2026</b>. Cost-of-compliance shock came third: CBAM certificates became payable on January 1, 2026, and the EU's Omnibus Directive simultaneously narrowed CSRD scope by ~80% — more carbon cost where it binds, less reporting where it doesn't.</p>
+    <p data-cn="每个事件都标在下方：红框为危机，蓝框为当前窗口；点击任意铭牌查看背景与来源。值得注意的规律是：2025年年中之后，节奏从<i>扰动</i>转向<i>结构</i>——关税、碳收费与承运人网络重设计，这些都不会回摆。因此本报告将当前时代命名为“重构 + AI建设期”，而非“复苏”。">Each event is plotted below, red-framed for crises, blue-framed for the current window; click any plaque for context and source. The pattern to notice: after mid-2025 the cadence shifts from <i>disruptions</i> to <i>structures</i> — tariffs, carbon charges, and carrier network redesigns that don't revert. That is why this report dates the current era "Rewiring + AI build-out" rather than "Recovery."</p>
+  </div>
+  <div class="wide xl"><div id="timeline-chart" class="chart-frame"></div></div>
+</section>
+
+<!-- ═══ §3 Market performance ═══ -->
+<section id="sec-markets" class="band" data-win="markets">
+  <div class="prose">
+    <p class="sec-no" data-cn="§3 · 市场表现 · Market performance">§3 · Market performance · 市场表现</p>
+    <h2 data-cn="市场已选出近期赢家：原子胜过比特">The market has picked a near-term winner: atoms over bits</h2>
+    <p class="dek" data-cn="覆盖包裹、货代、海运与软件的12家面板，标记至7月17日收盘——并附实时刷新组件。">A twelve-entity panel across parcel, forwarding, ocean and software, marked to the July 17 close — plus a live refresh widget.</p>
+    <p data-cn="2026年的行情奖励搬运原子者。<b>XPO +47%、J.B. Hunt +44%、FedEx +30%、DHL +28%</b>——货运周期杠杆与成本削减计划在低迷的2025年基数上复利。海运更平稳（<b>马士基 +19%、ZIM +17%</b>）：即使运价正常化，红海扰动仍令有效运力偏紧。离群者很能说明问题：<b>GXO −2%</b>仍在消化整合利润率疑虑；<b>Manhattan Associates −2%</b>——最纯粹的上市SCM软件标的——尽管有AI叙事却已降估值，因为投资者在等待智能体收入出现在订单里，而不是主题演讲里。对照<b>标普500的+9.7%</b>，面板传递的信息是：货运周期已经转向，软件的回报被相信、但尚未被兑现。">The 2026 tape rewards moving atoms. <b>XPO +47%, J.B. Hunt +44%, FedEx +30%, DHL +28%</b> — freight-cycle leverage and cost programs compounding off a depressed 2025 base. Ocean is steadier (<b>Maersk +19%, ZIM +17%</b>) as Red Sea disruption keeps effective capacity tight even as freight rates normalize. The outliers are revealing: <b>GXO −2%</b> is still working through integration margin doubts, and <b>Manhattan Associates −2%</b> — the purest listed SCM-software play — has de-rated despite the AI narrative, as investors wait for agentic revenue to show up in bookings rather than keynotes. Against the <b>S&amp;P 500's +9.7%</b>, the panel's message is that the freight cycle turned, and the software payoff is believed but not yet banked.</p>
+    <p data-cn="运价讲述实体故事：Drewry综合指数为<b>每40英尺箱3,549美元</b>，在关税抢跑吸收创纪录新船交付的背景下维持高位区间。下方四条去程航线将当前评估（实心）与上周（描边）配对——重构网络的每周脉搏。所有数值均可点击下钻；面板上方的刷新条会尝试实时拉取行情，失败时如实标注、回退到已核验快照。">Freight rates tell the physical story: Drewry's composite sits at <b>$3,549 per 40ft</b>, holding an elevated band as tariff front-running absorbs record vessel deliveries. The four headhaul lanes below pair the current assessment (solid) against the prior week (outline) — the weekly pulse of the rewired network. All values are click-to-drill; the refresh strip above the panels attempts a live quote pull and falls back, honestly labeled, to the verified snapshot.</p>
+  </div>
+  <div class="wide xl"><div id="live-strip" class="chart-frame"></div></div>
+  <div class="wide xl"><div id="multi-chart" class="chart-frame"></div></div>
+  <div class="wide xl"><div id="wci-chart" class="chart-frame"></div></div>
+</section>
+
+<!-- ═══ §4 Hot topics ═══ -->
+<section id="sec-topics" class="band" data-win="topics">
+  <div class="prose">
+    <p class="sec-no" data-cn="§4 · 热门议题 · Hot topics">§4 · Hot topics · 热门议题</p>
+    <h2 data-cn="五场辩论，按热度与后果评级">Five debates, graded on heat and consequence</h2>
+    <p class="dek" data-cn="年中行业真正在争论什么——每个议题按正在发生什么、代价几何、对网络的影响、以及观察指标展开。">What the industry is actually arguing about at mid-year — each topic mapped across what is happening, what it costs, what it does to networks, and what to watch.</p>
+    <p data-cn="两个议题最热。<b>关税与贸易政策重构</b>已不再是情景而是运营条件——15%美欧基准关税已经生效，行业性豁免仍在逐行业谈判，采购转移已体现在贸易数据中（埃及纺织品出口同比+73%）。<b>运营中的智能体AI</b>用18个月从主题演讲走向部署：51%的CSCO在试点、41%的员工日常使用AI，治理框架成为真正的约束。红海的温度低一档，只是因为它已被定价——苏伊士全面复航如今是运价的下行风险，而非上行理由。碳监管与人才挤压构成五议题的其余两项：燃烧更慢，但在本报告见过的每一个网络模型中都是结构性的成本加法。">Two topics run hottest. <b>Tariffs and trade-policy rewiring</b> is no longer a scenario but an operating condition — the 15% EU–US baseline is in force, carve-outs are being negotiated sector by sector, and sourcing shifts are visible in the trade data (Egypt's textile exports up 73% year-on-year). <b>Agentic AI in operations</b> moved from keynote to deployment in eighteen months: 51% of CSCOs piloting, 41% of staff using AI daily, and governance frameworks now the binding constraint. The Red Sea sits one notch cooler only because it is priced — a full Suez resumption is now the bear risk to freight rates, not the bull case. Carbon regulation and the talent squeeze complete the five: slower-burning, but structurally cost-additive in every network model this report has seen.</p>
+  </div>
+  <div class="wide xl"><div id="hot-chart" class="chart-frame"></div></div>
+</section>
+
+<!-- ═══ §5 Key trends ═══ -->
+<section id="sec-trends" class="band" data-win="trends">
+  <div class="prose">
+    <p class="sec-no" data-cn="§5 · 重点行业趋势 · Key industry trends">§5 · Key industry trends · 重点行业趋势</p>
+    <h2 data-cn="八项技术、三大主题、一个硬约束">Eight technologies, three themes, one binding constraint</h2>
+    <p class="dek" data-cn="Gartner 2026技术雷达、决定什么能真正落地的采用门槛、回岸算术，以及下半年的情景赔率。">Gartner's 2026 technology radar, the adoption gates that decide what actually ships, the reshoring arithmetic, and the scenario odds for H2.</p>
+    <p data-cn="2026年的技术议程聚成三大主题。<b>智能体与应用AI</b>——自主智能体、决策智能、AI原生平台——是预算流向。<b>自动化与机器人</b>——物理AI、超自动化——劳动力稀缺（37万个美国仓储岗位空缺）让ROI算术在任何周期都成立。<b>可视化与韧性</b>——控制塔、数字孪生、关税情景工具——是政策环境如今要求的入场券。但采用是有门槛的：下方门槛阶梯按刚性排序约束，从数据质量（最硬、无绕行）到预算（最软）。近岸外包象形图给出实体反证——新供应基地正在填满、机器人密度创纪录——最后以本报告对下半年的分级概率赔率板收尾。">The 2026 technology agenda clusters into three themes. <b>Agentic and applied AI</b> — autonomous agents, decision intelligence, AI-native platforms — is where budgets are moving. <b>Automation and robotics</b> — physical AI, hyperautomation — is where labor scarcity (370K unfilled US warehouse jobs) makes the ROI arithmetic work regardless of cycle. <b>Visibility and resilience</b> — control towers, digital twins, tariff-scenario tooling — is what the policy environment now demands as table stakes. But adoption is gated: the gate ladder below ranks the constraints by rigidity, from data quality (hardest, no bypass) to budget (softest). The nearshoring pictograms give the physical counter-evidence — new supply bases filling, robot density at records — and the odds board closes the section with this report's graded probabilities for the second half.</p>
+  </div>
+  <div class="wide"><div id="trend-chart" class="chart-frame"></div></div>
+  <div class="wide xl"><div id="gate-chart" class="chart-frame"></div></div>
+  <div class="wide xl"><div id="near-chart" class="chart-frame"></div></div>
+  <div class="wide xl"><div id="odds-chart" class="chart-frame"></div></div>
+</section>
+
+<!-- ═══ §6 Verdict ═══ -->
+<section id="sec-verdict" class="band" data-win="verdict">
+  <div class="prose">
+    <p class="sec-no" data-cn="§6 · 结论 · Verdict">§6 · Verdict</p>
+    <h2 data-cn="韧性优先是基准；效率在其中存续">Resilience-first is the baseline; efficiency survives inside it</h2>
+    <p class="dek" data-cn="把证据放在物理天平上：什么让天平倾斜，什么会升级判断，什么会证伪它。">The evidence, weighed physically: what tips the scale, what would upgrade the reading, and what would falsify it.</p>
+    <p data-cn="“没有根本变化”的论证——成本逻辑仍在、AI生产率真实、货运周期自我筑底——是真诚的，但数量上落了下风。“结构性重构”的论证有更多运动部件：关税是政策而非噪声、智能体采用在领先者与落后者之间复利出能力鸿沟、韧性支出已成为董事会预算科目、碳有了现金价格、以及无论周期如何都倒逼自动化的劳动力市场。下方的天平称量两份清单；悬在盘外的虚线砝码是会升级判断的触发条件，底部的红色斜纹封条是证伪带——三条可测量的条件，任一触发，本报告的结论就是错的。这是一项研究判断，不是评分，也不是投资建议。">The case that nothing fundamental has changed — cost logic persists, AI productivity is real, the freight cycle floors itself — is genuine but outnumbered. The case for structural rewiring carries more working parts: tariffs that are policy rather than noise, agentic adoption compounding a capability gap between leaders and laggards, resilience spend now a budgeted board line, carbon with a cash price, and a labor market that forces automation regardless of the cycle. The scale below weighs both lists; the dashed weights hovering outside the pans are the triggers that would upgrade the reading, and the red-hatched seal at the base is the falsification strip — the three measurable conditions under which this report's verdict is simply wrong. This is a research judgment, not a score, and not investment advice.</p>
+  </div>
+  <div class="wide xl"><div id="verdict-chart" class="chart-frame"></div></div>
+</section>
+
+<!-- ═══ Sources ═══ -->
+<footer id="sec-sources">
+  <div class="prose">
+    <p class="sec-no" data-cn="来源与方法">Sources &amp; method</p>
+    <h2 data-cn="方法、纪律与来源">Method, discipline, and sources</h2>
+    <div class="note-box">
+      <p data-cn="&lt;b&gt;证据分级。&lt;/b&gt;公司一手披露优先于交叉核验的行业数据，后者优先于券商转述；推算值标注[推算]，绝不混入不属于它们的基数。被撤回或基数混淆的数字不会出现在渲染层。"><b>Evidence grading.</b> Company primary disclosure outranks cross-checked industry data, which outranks broker relay; derived values are flagged [derived] and never mixed into bases they don't share. Retracted or basis-mixed numbers do not appear at the render layer.</p>
+      <p data-cn='&lt;b&gt;来源分类，均注明日期。&lt;/b&gt;&lt;span class="src-cat company"&gt;公司披露&lt;/span&gt; &lt;span class="src-cat broker"&gt;券商研究&lt;/span&gt; &lt;span class="src-cat industry"&gt;行业与官方&lt;/span&gt; &lt;span class="src-cat kimi"&gt;研究汇编&lt;/span&gt;'><b>Source classes, each dated.</b> <span class="src-cat company">Company disclosure</span>
+        <span class="src-cat broker">Broker research</span> <span class="src-cat industry">Industry &amp; official</span>
+        <span class="src-cat kimi">Research compilation</span></p>
+      <p data-cn="&lt;b&gt;测量纪律。&lt;/b&gt;市场数据为2026-07-17收盘价（DHL.DE与MAERSK-B.CO为2026-07-16，其交易所的最后交易日）。YTD指数为每周收盘价，以2026年第一个周收盘为100重定基。WCI上周值由已发布的周环比反推[推算]。情景概率是主观研究判断，不是市场隐含赔率。实时刷新组件在浏览时拉取公开CSV行情；不可达时回退到已核验快照并如实说明。"><b>Measurement discipline.</b> Market data is the 2026-07-17 close (DHL.DE and MAERSK-B.CO 2026-07-16, their exchanges' last sessions). YTD indexes are weekly closes rebased to 100 at the first 2026 weekly close. WCI prior-week values are back-computed from published week-on-week percentages [derived]. Scenario probabilities are subjective research judgments, not market-implied odds. The live-refresh widget pulls public CSV quotes at view time; when unreachable it falls back to the verified snapshot and says so.</p>
+      <p data-cn="&lt;b&gt;范围。&lt;/b&gt;无评级、无目标价、无投资建议。历史类比仅作类比引用；本轮周期没有真正的先例。"><b>Scope.</b> No ratings, no price targets, no investment advice. Historical analogues are referenced as analogues only; this cycle has no true precedent.</p>
+    </div>
+  </div>
+  <div class="wide xl">
+    <div style="margin-top:26px">
+      <p class="chart-title" data-cn="锚点登记册 · K1–K24">Anchor register · K1–K24</p>
+      <p class="chart-sub" data-cn="报告所依赖的每一个数字，连同注明日期的来源">EVERY NUMBER THE REPORT LEANS ON, WITH ITS DATED SOURCE</p>
+    </div>
+    <div id="source-list"></div>
+  </div>
+  <div class="prose">
+    <p class="colophon" data-cn="交互研究版 · 编纂于 2026-07-19 · 不构成投资建议">Interactive research edition · Compiled 2026-07-19 · No investment advice</p>
+  </div>
+</footer>
+
+</main>
+
+<aside id="dash-rail" aria-label="Cycle dashboard"><canvas id="dash-canvas"></canvas></aside>
+<div id="drill-card" hidden></div>
+
+<script src="vendor/d3.min.js"></script>
+<script src="vendor/topojson-client.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/cover.js"></script>
+<script src="js/cover-exploded.js"></script>
+<script src="js/cover-wire.js"></script>
+<script src="js/chart-ship.js"></script>
+<script src="js/chart-iso.js"></script>
+<script src="js/chart-timeline.js"></script>
+<script src="js/chart-live.js"></script>
+<script src="js/chart-multi.js"></script>
+<script src="js/chart-wci.js"></script>
+<script src="js/chart-dom.js"></script>
+<script src="js/chart-verdict.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/sources.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

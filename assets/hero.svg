@@ -1,0 +1,239 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 380" preserveAspectRatio="xMidYMid meet" role="img">
+  <title>Global Supply Chain 2026 · 全球供应链 2026</title>
+
+  <!-- ═══ Light background ═══ -->
+  <rect width="880" height="380" fill="#f7f9fc"/>
+
+  <!-- ═══ Subtle grid ═══ -->
+  <g opacity="0.5">
+    <line x1="0" y1="60" x2="880" y2="60" stroke="#eef1f6" stroke-width=".5"/>
+    <line x1="0" y1="120" x2="880" y2="120" stroke="#eef1f6" stroke-width=".5"/>
+    <line x1="0" y1="180" x2="880" y2="180" stroke="#eef1f6" stroke-width=".5"/>
+    <line x1="0" y1="240" x2="880" y2="240" stroke="#eef1f6" stroke-width=".5"/>
+  </g>
+
+  <!-- ═══ Sea band ═══ -->
+  <rect x="0" y="300" width="880" height="80" fill="#eef2f9"/>
+
+  <!-- ═══ Title block (bilingual) ═══ -->
+  <text x="440" y="56" text-anchor="middle" font-family="Georgia,'Iowan Old Style',Palatino,serif" font-size="30" font-weight="700" fill="#051c2c" letter-spacing="-0.5">Global Supply Chain 2026</text>
+  <text x="440" y="80" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="13.5" fill="#42566a">全球供应链 2026 · 年中行业研究简报</text>
+  <text x="440" y="100" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,sans-serif" font-size="11.5" fill="#8595a6" letter-spacing="0.4">Mid-Year Industry Brief — Physical Logistics · Planning Software · Warehouse Automation</text>
+
+  <!-- ═══ Keyword chips (three-layer framework, floating) ═══ -->
+  <!-- Chip 1: Physical -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -2.5; 0 0" dur="3s" repeatCount="indefinite"/>
+    <rect x="70" y="122" width="210" height="40" rx="8" fill="#ffffff" stroke="#dbe2ea" stroke-width="1"/>
+    <circle cx="88" cy="142" r="4" fill="#2251ff"/>
+    <text x="102" y="138" font-family="Menlo,Consolas,monospace" font-size="8.5" letter-spacing="1.2" fill="#8595a6">PHYSICAL · 实体物流</text>
+    <text x="102" y="154" font-family="Menlo,Consolas,monospace" font-size="13" font-weight="700" fill="#051c2c">$11.97T</text>
+  </g>
+  <!-- Chip 2: Planning -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -2.5; 0 0" dur="3.5s" begin="0.5s" repeatCount="indefinite"/>
+    <rect x="335" y="122" width="210" height="40" rx="8" fill="#ffffff" stroke="#dbe2ea" stroke-width="1"/>
+    <circle cx="353" cy="142" r="4" fill="#008a6d"/>
+    <text x="367" y="138" font-family="Menlo,Consolas,monospace" font-size="8.5" letter-spacing="1.2" fill="#8595a6">PLANNING · 计划软件</text>
+    <text x="367" y="154" font-family="Menlo,Consolas,monospace" font-size="13" font-weight="700" fill="#051c2c">$39.2B · +10.7% CAGR</text>
+  </g>
+  <!-- Chip 3: Automation -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -2.5; 0 0" dur="4s" begin="1s" repeatCount="indefinite"/>
+    <rect x="600" y="122" width="210" height="40" rx="8" fill="#ffffff" stroke="#dbe2ea" stroke-width="1"/>
+    <circle cx="618" cy="142" r="4" fill="#b07a10"/>
+    <text x="632" y="138" font-family="Menlo,Consolas,monospace" font-size="8.5" letter-spacing="1.2" fill="#8595a6">AUTOMATION · 仓储自动化</text>
+    <text x="632" y="154" font-family="Menlo,Consolas,monospace" font-size="13" font-weight="700" fill="#051c2c">~$29B</text>
+  </g>
+
+  <!-- ═══ Drifting clouds ═══ -->
+  <g fill="#ffffff" opacity="0.55">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 36 0; 0 0" dur="30s" repeatCount="indefinite"/>
+    <ellipse cx="140" cy="200" rx="26" ry="7"/>
+    <ellipse cx="155" cy="196" rx="16" ry="6"/>
+  </g>
+  <g fill="#ffffff" opacity="0.4">
+    <animateTransform attributeName="transform" type="translate" values="-24 0; 28 0; -24 0" dur="38s" repeatCount="indefinite"/>
+    <ellipse cx="640" cy="185" rx="20" ry="6"/>
+    <ellipse cx="652" cy="182" rx="12" ry="5"/>
+  </g>
+
+  <!-- ═══ Distant ship silhouette (slow traverse) ═══ -->
+  <g opacity="0.3">
+    <animateTransform attributeName="transform" type="translate" values="760 292; 520 292" dur="90s" repeatCount="indefinite"/>
+    <path d="M -30 0 L 30 0 L 24 10 L -24 10 Z" fill="#8595a6"/>
+    <rect x="-22" y="-7" width="12" height="7" fill="#8595a6"/>
+    <rect x="-8" y="-7" width="12" height="7" fill="#8595a6"/>
+    <rect x="6" y="-7" width="12" height="7" fill="#8595a6"/>
+    <rect x="20" y="-12" width="5" height="12" fill="#8595a6"/>
+  </g>
+
+  <!-- ═══ Trade route arcs (dotted, animated flow) ═══ -->
+  <g fill="none" stroke="#2251ff" stroke-width="1" opacity="0.14" stroke-dasharray="3 4">
+    <path d="M 80 308 Q 240 200 440 292">
+      <animate attributeName="stroke-dashoffset" from="0" to="-28" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 440 292 Q 600 195 790 302">
+      <animate attributeName="stroke-dashoffset" from="0" to="-28" dur="2.5s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 180 330 Q 340 268 520 322">
+      <animate attributeName="stroke-dashoffset" from="0" to="28" dur="4s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- ═══ Moving cargo dots along routes ═══ -->
+  <circle r="2.5" fill="#2251ff" opacity="0.55">
+    <animateMotion dur="4s" repeatCount="indefinite" path="M 80 308 Q 240 200 440 292"/>
+  </circle>
+  <circle r="2" fill="#7d9bff" opacity="0.45">
+    <animateMotion dur="4s" begin="1.5s" repeatCount="indefinite" path="M 80 308 Q 240 200 440 292"/>
+  </circle>
+  <circle r="2.5" fill="#2251ff" opacity="0.55">
+    <animateMotion dur="3.5s" repeatCount="indefinite" path="M 440 292 Q 600 195 790 302"/>
+  </circle>
+  <circle r="2" fill="#7d9bff" opacity="0.4">
+    <animateMotion dur="3.5s" begin="2s" repeatCount="indefinite" path="M 440 292 Q 600 195 790 302"/>
+  </circle>
+  <circle r="2" fill="#7d9bff" opacity="0.35">
+    <animateMotion dur="5s" repeatCount="indefinite" path="M 180 330 Q 340 268 520 322"/>
+  </circle>
+
+  <!-- ═══ Port nodes (pulsing, bilingual labels) ═══ -->
+  <!-- SHA -->
+  <g>
+    <circle cx="80" cy="308" r="4" fill="#2251ff" opacity="0.55">
+      <animate attributeName="r" values="4;7;4" dur="2.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.55;0.85;0.55" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="80" cy="308" r="10" fill="none" stroke="#2251ff" stroke-width="1" opacity="0.18">
+      <animate attributeName="r" values="4;15;4" dur="2.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.22;0;0.22" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="80" y="331" text-anchor="middle" font-family="Menlo,Consolas,monospace" font-size="9" fill="#8595a6">SHA · 上海</text>
+  </g>
+  <!-- SUEZ -->
+  <g>
+    <circle cx="440" cy="292" r="4" fill="#2251ff" opacity="0.55">
+      <animate attributeName="r" values="4;7;4" dur="2.5s" begin="0.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.55;0.85;0.55" dur="2.5s" begin="0.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="440" cy="292" r="10" fill="none" stroke="#2251ff" stroke-width="1" opacity="0.18">
+      <animate attributeName="r" values="4;15;4" dur="2.5s" begin="0.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.22;0;0.22" dur="2.5s" begin="0.8s" repeatCount="indefinite"/>
+    </circle>
+    <text x="440" y="315" text-anchor="middle" font-family="Menlo,Consolas,monospace" font-size="9" fill="#8595a6">SUEZ · 苏伊士</text>
+  </g>
+  <!-- RTM -->
+  <g>
+    <circle cx="790" cy="302" r="4" fill="#2251ff" opacity="0.55">
+      <animate attributeName="r" values="4;7;4" dur="2.5s" begin="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.55;0.85;0.55" dur="2.5s" begin="1.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="790" cy="302" r="10" fill="none" stroke="#2251ff" stroke-width="1" opacity="0.18">
+      <animate attributeName="r" values="4;15;4" dur="2.5s" begin="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.22;0;0.22" dur="2.5s" begin="1.6s" repeatCount="indefinite"/>
+    </circle>
+    <text x="790" y="325" text-anchor="middle" font-family="Menlo,Consolas,monospace" font-size="9" fill="#8595a6">RTM · 鹿特丹</text>
+  </g>
+
+  <!-- ═══ Gantry crane with hoist animation (near RTM) ═══ -->
+  <rect x="688" y="296" width="118" height="7" fill="#dbe2ea"/>
+  <g stroke="#42566a" stroke-width="2" fill="none" opacity="0.8">
+    <line x1="715" y1="296" x2="715" y2="246"/>
+    <line x1="745" y1="296" x2="745" y2="246"/>
+    <line x1="715" y1="270" x2="745" y2="270"/>
+    <line x1="695" y1="246" x2="795" y2="246"/>
+    <line x1="705" y1="246" x2="730" y2="234"/>
+    <line x1="755" y1="246" x2="730" y2="234"/>
+  </g>
+  <!-- trolley + hoist + container -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 58 0; 0 0" dur="7s" repeatCount="indefinite"/>
+    <rect x="700" y="243" width="14" height="7" fill="#42566a" opacity="0.8"/>
+    <line x1="707" y1="250" x2="707" y2="262" stroke="#42566a" stroke-width="1" opacity="0.8">
+      <animate attributeName="y2" values="262;296;262" dur="4.5s" repeatCount="indefinite"/>
+    </line>
+    <rect x="699" y="262" width="16" height="10" fill="#2251ff" opacity="0.85" rx="1">
+      <animate attributeName="y" values="262;296;262" dur="4.5s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- ═══ Container ship (light theme, bob + roll) ═══ -->
+  <g transform="translate(350 244)">
+    <animateTransform attributeName="transform" type="translate" values="350 244; 350 246; 350 244; 350 242; 350 244" dur="4.5s" repeatCount="indefinite" additive="replace"/>
+    <animateTransform attributeName="transform" type="rotate" values="-1 0 40; 1 0 40; -1 0 40" dur="6s" repeatCount="indefinite" additive="sum"/>
+
+    <!-- hull — white fill, navy outline -->
+    <path d="M -80 40 L 80 40 L 68 62 L -68 62 Z" fill="#ffffff" stroke="#051c2c" stroke-width="1.2" opacity="0.95"/>
+
+    <!-- deck -->
+    <rect x="-72" y="32" width="144" height="10" fill="#eef1f6"/>
+
+    <!-- containers row 1 (bottom) -->
+    <g>
+      <rect x="-66" y="20" width="22" height="13" fill="#2251ff" opacity="0.8" rx="1"/>
+      <rect x="-42" y="20" width="22" height="13" fill="#008a6d" opacity="0.75" rx="1"/>
+      <rect x="-18" y="20" width="22" height="13" fill="#b07a10" opacity="0.75" rx="1"/>
+      <rect x="6" y="20" width="22" height="13" fill="#2251ff" opacity="0.8" rx="1"/>
+      <rect x="30" y="20" width="22" height="13" fill="#008a6d" opacity="0.75" rx="1"/>
+      <rect x="54" y="20" width="14" height="13" fill="#7d9bff" opacity="0.6" rx="1"/>
+    </g>
+    <!-- containers row 2 (middle) -->
+    <g>
+      <rect x="-60" y="7" width="22" height="13" fill="#b07a10" opacity="0.75" rx="1"/>
+      <rect x="-36" y="7" width="22" height="13" fill="#2251ff" opacity="0.8" rx="1"/>
+      <rect x="-12" y="7" width="22" height="13" fill="#7d9bff" opacity="0.6" rx="1"/>
+      <rect x="12" y="7" width="22" height="13" fill="#008a6d" opacity="0.75" rx="1"/>
+      <rect x="36" y="7" width="22" height="13" fill="#2251ff" opacity="0.8" rx="1"/>
+    </g>
+    <!-- containers row 3 (top, subtle bob) -->
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 0 -1.5; 0 0" dur="3s" repeatCount="indefinite"/>
+      <rect x="-54" y="-6" width="22" height="13" fill="#2251ff" opacity="0.8" rx="1"/>
+      <rect x="-30" y="-6" width="22" height="13" fill="#008a6d" opacity="0.75" rx="1"/>
+      <rect x="-6" y="-6" width="22" height="13" fill="#7d9bff" opacity="0.6" rx="1"/>
+      <rect x="18" y="-6" width="22" height="13" fill="#b07a10" opacity="0.75" rx="1"/>
+      <rect x="42" y="-6" width="14" height="13" fill="#2251ff" opacity="0.8" rx="1"/>
+    </g>
+
+    <!-- bridge -->
+    <rect x="56" y="-12" width="18" height="44" fill="#f7f9fc" stroke="#051c2c" stroke-width="1" opacity="0.9" rx="2"/>
+    <rect x="59" y="-8" width="12" height="3" fill="#2251ff" opacity="0.25"/>
+
+    <!-- mast + blinking light -->
+    <line x1="0" y1="-12" x2="0" y2="-26" stroke="#42566a" stroke-width="1" opacity="0.5"/>
+    <circle cx="0" cy="-27" r="1.5" fill="#2251ff">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- radar sweep from mast -->
+    <g transform="translate(0 -27)">
+      <circle r="30" fill="none" stroke="#2251ff" stroke-width="1" opacity="0.08"/>
+      <line x1="0" y1="0" x2="30" y2="0" stroke="#2251ff" stroke-width="1" opacity="0.3">
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="5s" repeatCount="indefinite"/>
+      </line>
+    </g>
+
+    <!-- waterline stripe -->
+    <rect x="-68" y="56" width="136" height="3" fill="#dbe2ea" opacity="0.9"/>
+  </g>
+
+  <!-- ═══ Water waves (two morphing layers) ═══ -->
+  <g fill="none" stroke="#d3dcea" stroke-width="1" opacity="0.9">
+    <path d="M -20 318 Q 60 314 140 318 Q 220 322 300 318 Q 380 314 460 318 Q 540 322 620 318 Q 700 314 780 318 Q 860 322 940 318">
+      <animate attributeName="d" dur="4s" repeatCount="indefinite"
+        values="M -20 318 Q 60 314 140 318 Q 220 322 300 318 Q 380 314 460 318 Q 540 322 620 318 Q 700 314 780 318 Q 860 322 940 318;
+                M -20 318 Q 60 322 140 318 Q 220 314 300 318 Q 380 322 460 318 Q 540 314 620 318 Q 700 322 780 318 Q 860 314 940 318;
+                M -20 318 Q 60 314 140 318 Q 220 322 300 318 Q 380 314 460 318 Q 540 322 620 318 Q 700 314 780 318 Q 860 322 940 318"/>
+    </path>
+  </g>
+  <g fill="none" stroke="#dde4ef" stroke-width="1" opacity="0.9">
+    <path d="M -20 336 Q 80 332 180 336 Q 280 340 380 336 Q 480 332 580 336 Q 680 340 780 336 Q 880 332 980 336">
+      <animate attributeName="d" dur="3.5s" repeatCount="indefinite"
+        values="M -20 336 Q 80 332 180 336 Q 280 340 380 336 Q 480 332 580 336 Q 680 340 780 336 Q 880 332 980 336;
+                M -20 336 Q 80 340 180 336 Q 280 332 380 336 Q 480 340 580 336 Q 680 332 780 336 Q 880 340 980 336;
+                M -20 336 Q 80 332 180 336 Q 280 340 380 336 Q 480 332 580 336 Q 680 340 780 336 Q 880 332 980 336"/>
+    </path>
+  </g>
+
+</svg>

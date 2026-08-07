@@ -1,0 +1,27 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# WorkBuddy workspace data (should never be committed)
+.workbuddy/
+
+# Environment & secrets
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Dependencies
+node_modules/
+
+# Build artifacts (optional: uncomment if you don't want to track dist-single.html)
+# dist-single.html
