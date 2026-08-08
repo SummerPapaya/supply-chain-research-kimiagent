@@ -1,3 +1,13 @@
+<!-- ANIMATED HERO SVG -->
+<p align="center">
+  <img src="assets/hero.svg" alt="Global Supply Chain 2026 · 全球供应链 2026 — animated container ship hero" width="880" />
+</p>
+
+<div align="center">
+  <h1>Global Supply Chain 2026 · 全球供应链 2026</h1>
+  <p><b>Industry Research Brief — Logistics, Software &amp; Automation</b><br/>行业研究简报 — 物流、软件与自动化</p>
+</div>
+
 <!-- BADGES -->
 <div align="center">
 
@@ -10,14 +20,7 @@
 
 </div>
 
-<!-- ANIMATED HERO SVG -->
-<p align="center">
-  <img src="assets/hero.svg" alt="Global Supply Chain 2026 · 全球供应链 2026 — animated container ship hero" width="880" />
-</p>
-
 <div align="center">
-  <h1>Global Supply Chain 2026 · 全球供应链 2026</h1>
-  <p><b>Industry Research Brief — Logistics, Software &amp; Automation</b><br/>行业研究简报 — 物流、软件与自动化</p>
   <p><a href="#english"><b>English</b></a> · <a href="#中文"><b>中文</b></a></p>
 </div>
 
