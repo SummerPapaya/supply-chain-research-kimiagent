@@ -7,59 +7,26 @@
   const B = U.bindCanvas(cv);
   const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const MONO = "Menlo, Consolas, 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', monospace", SERIF = "'et-book', Palatino, Georgia, 'Songti SC', 'Noto Serif CJK SC', 'SimSun', serif";
-  let cur = "frame", t = 0, last = 0, raf = 0, land = null;
+  let cur = "frame", t = 0, last = 0, raf = 0, paintLast = 0;
+  const railEl = document.getElementById("dash-rail");
 
   const WINS = {
-    frame:    { title: "THE REWIRED NETWORK", sub: "sector deep dive · 2026-07-17", stats: [["WCI", "$3,549"], ["SCM SW", "$39.2B"], ["TRADE 26F", "+1.9%"], ["SUEZ", "−60%"]] },
+    frame:    { title: "THE REWIRED NETWORK", sub: "sector deep dive · 2026-10-16", stats: [["WCI", "$4,485"], ["SCM SW", "$39.2B"], ["TRADE 26F", "+1.9%"], ["SUEZ", "RESUMING"]] },
     overview: { title: "§1 INDUSTRY OVERVIEW", sub: "layers & league table", stats: [["LOGISTICS", "$11.97T"], ["3PL", "$1.8T"], ["SCM SW", "$39.2B"], ["CAGR", "+10.7%"]] },
-    dynamics: { title: "§2 INDUSTRY DYNAMICS", sub: "32 months of rewiring", stats: [["EVENTS", "16"], ["ERAS", "2"], ["TARIFF", "15%"], ["CSRD", "−80%"]] },
-    markets:  { title: "§3 MARKET PERFORMANCE", sub: "panel vs S&P 500", stats: [["LEADER", "XPO +47%"], ["LAGGARD", "GXO −2%"], ["S&P 500", "+9.7%"], ["PANEL", "10 UP / 2 DN"]] },
+    dynamics: { title: "§2 INDUSTRY DYNAMICS", sub: "35 months of rewiring", stats: [["EVENTS", "18"], ["ERAS", "2"], ["TARIFF", "15%"], ["CSRD", "−80%"]] },
+    markets:  { title: "§3 MARKET PERFORMANCE", sub: "panel vs S&P 500", stats: [["LEADER", "ZIM +38%"], ["LAGGARD", "CHRW −13%"], ["S&P 500", "+11.9%"], ["PANEL", "8 UP / 3 DN"]] },
     topics:   { title: "§4 HOT TOPICS", sub: "five debates graded", stats: [["HOTTEST", "TARIFFS"], ["ALSO HOT", "AGENTIC AI"], ["PRICED IN", "RED SEA"], ["SLOW BURN", "CARBON"]] },
     trends:   { title: "§5 KEY TRENDS", sub: "tech, gates, scenarios", stats: [["AI DAILY", "41%"], ["CSCO PILOTS", "51%"], ["OPENINGS", "370K"], ["ROBOTS", "700K+"]] },
     verdict:  { title: "§6 VERDICT", sub: "resilience-first baseline", stats: [["WEIGHTS L", "3"], ["WEIGHTS R", "5"], ["TRIGGERS", "3"], ["FALSIFY", "3"]] },
   };
 
-  fetch("vendor/world-land-110m.json").then(r => r.json()).then(tp => {
-    land = topojson.feature(tp, tp.objects.land);
-    if (REDUCE) draw(0);   // single-shot mode: redraw once land arrives
-  }).catch(() => {});
-
-  function globe(g, cx, cy, R) {
-    if (!land) return;
-    const proj = d3.geoEquirectangular().translate([cx, cy]).scale(R / 1.62);
-    const pts = [];
-    g.fillStyle = "rgba(66,86,106,.4)";
-    for (let lat = -60; lat <= 75; lat += 3) for (let lon = -180; lon <= 180; lon += 3) {
-      if (!d3.geoContains(land, [lon, lat])) continue;
-      const p = proj([lon, lat]);
-      if (p) pts.push(p);
-    }
-    pts.forEach(p => g.fillRect(p[0], p[1], 1.5, 1.5));
-    const labels = [];
-    RPT.globe_nodes.forEach(n => {
-      const p = proj([n.lon, n.lat]);
-      if (!p) return;
-      const pulse = n.hot && !REDUCE ? (Math.sin(t * 3 + n.lon) * 0.5 + 0.5) : 0.5;
-      g.fillStyle = n.hot ? `rgba(194,47,78,${0.55 + pulse * 0.45})` : "rgba(34,81,255,.85)";
-      g.beginPath(); g.arc(p[0], p[1], n.hot ? 3 + pulse * 2 : 2.6, 0, U.TAU); g.fill();
-      if (n.hot && !REDUCE) {
-        g.strokeStyle = `rgba(194,47,78,${0.5 - pulse * 0.4})`; g.lineWidth = 1;
-        g.beginPath(); g.arc(p[0], p[1], 5 + pulse * 7, 0, U.TAU); g.stroke();
-      }
-      labels.push({ name: n.name, x: p[0], y: p[1], hot: n.hot });
-    });
-    labels.sort((a, b) => a.y - b.y);
-    for (let i = 1; i < labels.length; i++) if (labels[i].y - labels[i - 1].y < 11) labels[i].y = labels[i - 1].y + 11;
-    g.font = `8px ${MONO}`;
-    labels.forEach(l => {
-      g.strokeStyle = "rgba(133,149,166,.6)"; g.lineWidth = 0.7;
-      g.beginPath(); g.moveTo(l.x + 4, l.y - 2); g.lineTo(l.x + 12, l.y); g.stroke();
-      g.fillStyle = l.hot ? "#c22f4e" : "#42566a";
-      g.fillText(l.name, l.x + 14, l.y + 3);
-    });
-  }
 
   function draw(now) {
+    raf = 0;
+    if (!REDUCE) raf = requestAnimationFrame(draw);
+    if (!railEl.classList.contains("on")) { last = now; return; }  // hidden on cover: no paint
+    if (now - paintLast < 150) return;                             // ~7fps paint throttle
+    paintLast = now;
     const dt = Math.min(0.05, last ? (now - last) / 1000 : 0.016); last = now; t += dt;
     const { w, h } = B.fit();
     const g = B.ctx;
@@ -77,7 +44,7 @@
     g.fillText(T(WN.sub).toUpperCase(), 24, y + 4); y += 20;
 
     const ph = RPT.phase, pw = (W - 48) / ph.names.length;
-    ph.names.forEach((n, i) => {
+    ph.names.forEach((n2, i) => {
       const on = i === ph.cur - 1;
       g.fillStyle = on ? "#2251ff" : i < ph.cur - 1 ? "#7d9bff" : "#eef1f6";
       g.fillRect(24 + i * pw + 1, y, pw - 2, 7);
@@ -85,16 +52,14 @@
     });
     y += 13;
     g.font = `8px ${MONO}`; g.fillStyle = "#2251ff";
-    g.fillText(T("NOW: ") + ph.curName.toUpperCase(), 24, y + 6); y += 18;
-
-    globe(g, W / 2, y + 88, 118); y += 186;
+    g.fillText(T("NOW: ") + ph.curName.toUpperCase(), 24, y + 6); y += 26;
 
     // S&P 500 YTD halftone curve
     const series = RPT.ytd_weekly.GSPC;
     const n = 72, pts = [];
     for (let i = 0; i < n; i++) {
       const f = i / (n - 1) * (series.length - 1), i0 = Math.floor(f), f1 = f - i0;
-      const v = series[i0][1] * (1 - f1) + (series[Math.min(i0 + 1, series.length - 1)][1]) * f1;
+      const v = series[i0] * (1 - f1) + series[Math.min(i0 + 1, series.length - 1)] * f1;
       pts.push(v);
     }
     const lo = Math.min(...pts), hi = Math.max(...pts), ch = 66, cy0 = y + 28;
@@ -112,7 +77,7 @@
     const lab = `S&P 500  +${sp.ytd}% ${T("YTD")}`;
     g.strokeText(lab, 26, cy0 - 8); g.fillStyle = "#051c2c"; g.fillText(lab, 26, cy0 - 8);
     g.font = `8px ${MONO}`; g.fillStyle = "#8595a6";
-    g.fillText(T("WEEKLY · JAN → JUL 2026"), 26, cy0 + ch + 14);
+    g.fillText(T("WEEKLY · JAN → OCT 2026"), 26, cy0 + ch + 14);
     y = cy0 + ch + 26;
 
     const sw = (W - 48) / 2;
@@ -141,7 +106,6 @@
     g.fillStyle = LS.mode === "live" ? "#008a6d" : (LS.mode === "cache" ? "#b07a10" : "#8595a6");
     g.fillText(T("QUOTES: ") + T(qLabel), 24, y + 4);
 
-    if (!REDUCE) raf = requestAnimationFrame(draw);
   }
 
   function setWin(win) { if (WINS[win] && win !== cur) { cur = win; if (REDUCE) draw(0); } }
@@ -156,7 +120,9 @@
   const coverEl = document.getElementById("cover");
   const syncRail = () => {
     const threshold = coverEl ? coverEl.offsetHeight * 0.55 : innerHeight * 0.55;
+    const was = rail.classList.contains("on");
     rail.classList.toggle("on", window.scrollY > threshold);
+    if (rail.classList.contains("on") && !was) { paintLast = 0; draw(performance.now()); }
   };
   addEventListener("scroll", syncRail, { passive: true });
   addEventListener("resize", syncRail);

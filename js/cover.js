@@ -77,6 +77,8 @@
 
   // ── Animation state ──
   let g = 0, t = 0, last = 0, raf = 0, born = {};   // born["i,j"] = phase at birth
+  let active = false;
+  const gate = U.visGate(document.getElementById("cover"));
   const BFS = [[0,0],[-1,0],[0,-1],[1,0],[0,1],[-1,-1],[1,-1],[-1,1],[1,1]]; // birth order
   function reset(gNew) {
     g = gNew;
@@ -143,18 +145,20 @@
     ctx.textAlign = "right";
     ctx.fillText(T("RECURSION LAYER") + " " + (g + 1) + T(" · EVERY SHIP, ONE CELL ON A LARGER CAPACITY MAP"), w - 36, h - 30);
     ctx.textAlign = "left";
-    if (!REDUCE) raf = requestAnimationFrame(draw);
+    raf = 0;
+    if (!REDUCE && active && gate.visible()) raf = requestAnimationFrame(draw);
   }
 
   const B = U.bindCanvas(cv);
   addEventListener("resize", () => { if (cv.style.display !== "none") draw(last || 0); });
   window.COVER_A = {
     setActive(on) {
-      cancelAnimationFrame(raf);
+      cancelAnimationFrame(raf); raf = 0; active = on;
       if (on) { B.fit(); reset(0); t = 0; last = 0;
         if (REDUCE) requestAnimationFrame(() => { B.fit(); draw(0); });
-        else raf = requestAnimationFrame(draw);
+        else if (gate.visible()) raf = requestAnimationFrame(draw);
       }
     }
   };
+  gate.on(() => { if (active && !REDUCE && !raf) raf = requestAnimationFrame(draw); });
 })();

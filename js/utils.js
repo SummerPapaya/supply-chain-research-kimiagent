@@ -28,18 +28,23 @@ window.U = (() => {
   };
   const SERIES = [PAL.red, PAL.blue, PAL.copper, PAL.green];
 
-  // HiDPI canvas size binding
+  // HiDPI canvas size binding. fit() reads layout only when the element's box
+  // actually changed (cache) — calling it every frame no longer forces layout.
   function bindCanvas(canvas) {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    const ctx = canvas.getContext("2d");
+    let lw = -1, lh = -1;
     const fit = () => {
       const r = canvas.getBoundingClientRect();
-      canvas.width = Math.round(r.width * dpr);
-      canvas.height = Math.round(r.height * dpr);
-      const ctx = canvas.getContext("2d");
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (r.width !== lw || r.height !== lh) {
+        lw = r.width; lh = r.height;
+        canvas.width = Math.round(r.width * dpr);
+        canvas.height = Math.round(r.height * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
       return { w: r.width, h: r.height, cx: r.width / 2, cy: r.height / 2 };
     };
-    return { fit, ctx: canvas.getContext("2d") };
+    return { fit, ctx };
   }
 
   // 3D projection
@@ -90,6 +95,24 @@ window.U = (() => {
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
+  }
+
+  // ── Visibility gate: is an element on-screen and the tab visible? ──
+  // Drives pause/resume of animation loops so off-screen canvases cost nothing.
+  function visGate(el) {
+    let inView = false;
+    const cbs = [];
+    const wake = () => { if (state()) cbs.forEach(f => f()); };
+    const state = () => inView && !document.hidden;
+    if ("IntersectionObserver" in window && el) {
+      new IntersectionObserver(en => {
+        const now = en[0].isIntersecting;
+        const was = inView; inView = now;
+        if (now && !was) wake();
+      }, { threshold: 0.01 }).observe(el);
+    } else inView = true;
+    document.addEventListener("visibilitychange", wake);
+    return { visible: state, on: f => cbs.push(f) };
   }
 
   const fmt = {
@@ -148,5 +171,5 @@ window.U = (() => {
     return body;
   }
 
-  return { TAU, clamp, lerp, smooth, ease, makeRng, PAL, SERIES, bindCanvas, project, dotField, countUp, fmt, showDrill, hideDrill, showTip, hideTip, frame };
+  return { TAU, clamp, lerp, smooth, ease, makeRng, PAL, SERIES, bindCanvas, project, dotField, countUp, fmt, visGate, showDrill, hideDrill, showTip, hideTip, frame };
 })();

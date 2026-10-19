@@ -1,29 +1,29 @@
 // §3 · LIVE refresh widget — pulls public CSV quotes (stooq) with a 9s timeout,
 // caches to localStorage, and falls back (honestly labeled) to the verified
-// 2026-07-17 Yahoo Finance snapshot when the endpoint is unreachable.
+// iFinD 2026-10-16 snapshot when the endpoint is unreachable.
 (() => {
   const host = document.getElementById("live-strip");
   if (!host) return;
   const body = U.frame(host, {
     title: T("The panel, refreshable"),
     sub: T("CLICK REFRESH FOR A LIVE PULL · SNAPSHOT FALLBACK IS LABELED, NEVER SILENT · CLICK A CELL TO DRILL"),
-    src: T("Snapshot: Yahoo Finance close 2026-07-17 (K21) · live: stooq CSV (K22)"),
+    src: T("Snapshot: iFinD close 2026-10-16 (K21) · benchmark: FRED (K26) · live: stooq CSV (K22)"),
   });
   const bar = document.createElement("div");
   bar.style.cssText = "display:flex;align-items:center;gap:14px;margin:6px 0 14px;font-family:Menlo, Consolas, 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', monospace;font-size:10.5px;letter-spacing:.08em";
   bar.innerHTML = `
     <button id="live-btn" style="font:inherit;letter-spacing:.08em;padding:7px 18px;border:1.4px solid #051c2c;background:#051c2c;color:#fff;cursor:pointer">${T("↻ REFRESH QUOTES")}</button>
-    <span id="live-state" style="color:#42566a">${T("VERIFIED SNAPSHOT · 2026-07-17 CLOSE")}</span>
+    <span id="live-state" style="color:#42566a">${T("VERIFIED SNAPSHOT · 2026-10-16 CLOSE")}</span>
     <span id="live-badge" style="padding:2px 9px;border:1px solid #8595a6;color:#42566a">${T("SNAPSHOT")}</span>`;
   body.appendChild(bar);
   const grid = document.createElement("div");
   grid.style.cssText = "display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:#dbe2ea;border:1px solid #dbe2ea";
   body.appendChild(grid);
 
-  const STOOQ = { UPS: "ups.us", FDX: "fdx.us", DHL_DE: "dhl.de", EXPD: "expd.us", CHRW: "chrw.us", JBHT: "jbht.us",
-                  XPO: "xpo.us", GXO: "gxo.us", ZIM: "zim.us", "MAERSK-B_CO": "maersk-b.dk", MANH: "manh.us", GSPC: "^spx" };
+  const STOOQ = { UPS: "ups.us", FDX: "fdx.us", EXPD: "expd.us", CHRW: "chrw.us", JBHT: "jbht.us", XPO: "xpo.us",
+                  GXO: "gxo.us", ZIM: "zim.us", MANH: "manh.us", ODFL: "odfl.us", SNDR: "sndr.us", GSPC: "^spx" };
 
-  const state = { mode: "snapshot", data: RPT.market_snap, when: "2026-07-17" };
+  const state = { mode: "snapshot", data: RPT.market_snap, when: "2026-10-16" };
   window.LIVE = { state };
 
   function render() {
@@ -44,8 +44,8 @@
       cell.onclick = e => U.showDrill({
         title: d.name, value: `${d.ccy} ${d.price.toLocaleString("en-US")}`,
         delta: d.ytd,
-        sub: `${T("52-wk")} ${d.lo52}–${d.hi52} · ${T("P/E")} ${d.pe ?? "—"} · ${T("div yield")} ${d.divY ?? "—"}%${d.mcapBn ? T(" · mkt cap ") + d.mcapBn + "B" : ""}`,
-        source: `${state.mode === "live" ? T("Live pull via stooq (K22)") : "K21 · Yahoo Finance"}${T(", as of ")}${state.when}`,
+        sub: `${T("52-wk")} ${d.lo52}–${d.hi52}${d.key === "GSPC" ? " · S&P 500 INDEX" : ""}`,
+        source: `${state.mode === "live" ? T("Live pull via stooq (K22)") : (d.key === "GSPC" ? T("K26 · FRED SP500, 2026-10-16") : T("K21 · iFinD, close 2026-10-16"))}${T(", as of ")}${state.when}`,
         x: e.clientX, y: e.clientY,
       });
       grid.appendChild(cell);
@@ -68,7 +68,7 @@
     const btn = document.getElementById("live-btn"), st = document.getElementById("live-state");
     btn.disabled = true; st.textContent = T("PULLING LIVE QUOTES…"); st.style.color = "#2251ff";
     const ctrl = new AbortController();
-    const to = setTimeout(() => ctrl.abort(), 9000);
+    const to = setTimeout(() => ctrl.abort(), 4000);
     try {
       const syms = Object.values(STOOQ).join(",");
       const res = await fetch(`https://stooq.com/q/l/?s=${syms}&f=sd2t2ohlcv&h&e=csv`, { signal: ctrl.signal });
@@ -96,7 +96,7 @@
       let cached = null;
       try { cached = JSON.parse(localStorage.getItem("scm-live") || "null"); } catch (_) {}
       if (cached && cached.data) { state.mode = "cache"; state.data = cached.data; state.when = cached.when; }
-      else { state.mode = "failed"; state.data = RPT.market_snap; state.when = "2026-07-17"; }
+      else { state.mode = "failed"; state.data = RPT.market_snap; state.when = "2026-10-16"; }
     } finally {
       clearTimeout(to); btn.disabled = false;
       render();
