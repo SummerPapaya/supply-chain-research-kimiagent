@@ -3,9 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="./assets/readme/hero.gif" width="100%" alt="供应链 2026：连接实体物流网络与软件决策层的动态研究地图">
-  <br>
-  <sub><a href="./assets/readme/hero.svg">查看静态 SVG</a></sub>
+  <img src="./assets/hero.svg" width="100%" alt="供应链 2026 三季度：双洋分化、S&amp;P 500 年初至今走势与 35 个月重构周期的动态研究图">
 </p>
 
 <p align="center">
