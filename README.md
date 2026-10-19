@@ -32,7 +32,7 @@
 
 ## Overview
 
-This repository contains a **fully self-contained interactive research report** on the global supply chain management industry at mid-2026. It is not a web app framework — it is a single editorial product: hand-built HTML, vanilla JavaScript, and D3.js visualizations, bundled into one portable HTML file.
+This repository contains a **fully self-contained interactive research report** on the global supply chain management industry at the end of Q3 2026. It is not a web app framework — it is a single editorial product: hand-built HTML, vanilla JavaScript, and D3.js visualizations, bundled into one portable HTML file.
 
 The report examines three layers of the supply chain industry:
 
@@ -42,7 +42,7 @@ The report examines three layers of the supply chain industry:
 | **Planning** | SCM software (planning, execution, WMS/TMS) | **$39.2B** (2026) | **+10.7% CAGR** |
 | **Automation** | Warehouse robotics & automation | **~$29B** | Mid-teens CAGR |
 
-The physical network is being **re-priced by policy** — a 15% EU–US tariff baseline, a half-blockaded Suez Canal, and carbon that now carries a cash cost. The planning layer is being **rebuilt around agentic AI**, with 51% of chief supply-chain officers already piloting autonomous decision agents.
+The physical network is being **re-priced by policy** — a 15% EU–US tariff baseline now a full quarter in force, Suez transits broadening again and handing capacity back, and carbon carrying a cash cost since January 1. The planning layer is being **rebuilt around agentic AI**, with 51% of chief supply-chain officers already piloting autonomous decision agents.
 
 ---
 
@@ -55,12 +55,12 @@ The report unfolds in seven sections, each with prose, interactive charts, and c
 | **Cover** | Container-ship engine | Four animated cover variants (yard recursion, ship layers, blueprint, unboxing) |
 | **§0** | Key findings | The eight hardest numbers, hung on a ship at their real measurement sites |
 | **§1** | Industry overview | Market sizing, adjacent-markets table, Gartner Top 25 |
-| **§2** | Industry dynamics | 32-month timeline from first Houthi attack to EU–US tariff framework |
-| **§3** | Market performance | 12-entity equity panel marked to Jul 17 + live refresh + WCI freight lanes |
+| **§2** | Industry dynamics | 35-month timeline from first Houthi attack to the October 2026 freight rebound |
+| **§3** | Market performance | 12-entity equity panel marked to Oct 16 + live refresh + WCI freight lanes |
 | **§4** | Hot topics | Five debates graded on heat and consequence |
 | **§5** | Key trends | Gartner 2026 tech radar, adoption gates, nearshoring, scenario odds |
 | **§6** | Verdict | A physical scale weighing the structural-rewiring case vs. status quo |
-| **Sources** | Method & sources | 24-anchor register (K1–K24), evidence grading, measurement discipline |
+| **Sources** | Method & sources | 26-anchor register (K1–K26), evidence grading, measurement discipline |
 
 ---
 
@@ -93,7 +93,7 @@ supply-chain-research-kimiagent/
 │   └── fonts.css           # ET Book font, base64-inlined
 ├── js/
 │   ├── data.js             # Market data, Top 25, adjacent markets (inline JSON)
-│   ├── sources.js          # 24-anchor source register (K1–K24)
+│   ├── sources.js          # 26-anchor source register (K1–K26)
 │   ├── i18n.js             # Bilingual EN/CN translation system
 │   ├── utils.js            # Shared utilities (drill card, frame builder)
 │   ├── cover.js            # Cover artwork A — container-ship yard recursion
@@ -101,7 +101,7 @@ supply-chain-research-kimiagent/
 │   ├── cover-wire.js       # Cover artwork C/D — blueprint & unboxing
 │   ├── chart-ship.js       # §0 — ship diagram with 8 key numbers
 │   ├── chart-iso.js        # §1 — industry isometric sizing chart
-│   ├── chart-timeline.js   # §2 — 32-month event timeline
+│   ├── chart-timeline.js   # §2 — 35-month event timeline
 │   ├── chart-live.js       # §3 — live stock quote refresh widget
 │   ├── chart-multi.js      # §3 — 12-entity equity panel
 │   ├── chart-wci.js        # §3 — Drewry WCI freight rate lanes
@@ -140,7 +140,7 @@ python3 -m http.server 8000
 # Then visit http://localhost:8000
 ```
 
-> The live quote refresh widget (§3) fetches from `stooq.com` — this may be blocked by CORS when opening `index.html` via `file://`. Use a local server for the full experience. When unreachable, it **honestly falls back** to the verified Jul 17 snapshot with a visible label.
+> The live quote refresh widget (§3) fetches from `stooq.com` — this may be blocked by CORS when opening `index.html` via `file://`. Use a local server for the full experience. When unreachable, it **honestly falls back** to the verified Oct 16 snapshot with a visible label.
 
 ### Option C — Use the pre-bundled single file
 
@@ -176,11 +176,11 @@ The report follows a strict editorial design system:
 
 ## Data & methodology
 
-- **Market data** marked to the **2026-07-17 close** (DHL.DE & MAERSK-B.CO: 2026-07-16, their last exchange sessions)
+- **Market data** marked to the **2026-10-16 close** (iFinD daily closes; S&P 500 benchmark via FRED)
 - **YTD indexes** are weekly closes rebased to 100 at the first 2026 weekly close
-- **WCI prior-week values** back-computed from published week-on-week percentages — flagged as `[derived]`
+- **WCI as of 2026-10-15** — prior-week values back-computed from published week-on-week percentages, flagged as `[derived]`
 - **Scenario probabilities** are subjective research judgments, not market-implied odds
-- **Source register** (K1–K24) documents every number the report leans on, with dated sources classified by tier: company disclosure, broker research, industry & official, research compilation
+- **Source register** (K1–K26) documents every number the report leans on, with dated sources classified by tier: company disclosure, broker research, industry & official, research compilation
 - **No ratings, no price targets, no investment advice**
 
 ---
@@ -190,13 +190,13 @@ The report follows a strict editorial design system:
 The §3 refresh widget pulls real-time stock quotes from **stooq.com** — a public CSV endpoint requiring **no API key and no authentication**. It covers 12 entities:
 
 ```
-UPS · FDX · DHL.DE · EXPD · CHRW · JBHT · XPO · GXO · ZIM · MAERSK-B.CO · MANH · ^SPX
+UPS · FDX · EXPD · CHRW · JBHT · XPO · GXO · ZIM · MANH · ODFL · SNDR · ^SPX
 ```
 
 Behavior:
 - 9-second timeout per request
 - Results cached to `localStorage` (`scm-live`)
-- On failure: **visible label** says "LIVE ENDPOINT UNREACHABLE — SHOWING VERIFIED SNAPSHOT" and falls back to the Jul 17 close
+- On failure: **visible label** says "LIVE ENDPOINT UNREACHABLE — SHOWING VERIFIED SNAPSHOT" and falls back to the Oct 16 close
 - **Never silently** substitutes stale data
 
 ---
@@ -239,7 +239,7 @@ You may freely reuse the code, including commercially. You may share and adapt t
 
 ## 项目概览
 
-本仓库包含一份**完全自包含的交互式研究报告**，聚焦2026年年中的全球供应链管理行业。它不是 Web 应用框架——而是一个完整的编辑产品：手工编写的 HTML、原生 JavaScript 和 D3.js 可视化，打包为一个可移植的 HTML 文件。
+本仓库包含一份**完全自包含的交互式研究报告**，聚焦2026年三季度末的全球供应链管理行业。它不是 Web 应用框架——而是一个完整的编辑产品：手工编写的 HTML、原生 JavaScript 和 D3.js 可视化，打包为一个可移植的 HTML 文件。
 
 报告审视了供应链行业的三个层级：
 
@@ -249,7 +249,7 @@ You may freely reuse the code, including commercially. You may share and adapt t
 | **计划层** | SCM软件（计划、执行、仓储/运输管理） | **$39.2B**（2026） | **+10.7% 复合增速** |
 | **自动化层** | 仓储机器人与自动化 | **约$29B** | 复合增速15%左右 |
 
-实体网络正被**政策重新定价**——15%的美欧基准关税、半封锁的苏伊士运河、以及如今带有现金成本的碳排放。计划层正围绕**智能体AI**重构，51%的首席供应链官已在试点自主决策代理。
+实体网络正被**政策重新定价**——15%的美欧基准关税已生效满一个季度、苏伊士复航扩大并开始归还运力、碳排放自1月1日起带上现金成本。计划层正围绕**智能体AI**重构，51%的首席供应链官已在试点自主决策代理。
 
 ---
 
@@ -262,12 +262,12 @@ You may freely reuse the code, including commercially. You may share and adapt t
 | **封面** | 集装箱船引擎 | 四种动画封面变体（堆场递归、船体分层、蓝图线框、开箱） |
 | **§0** | 核心发现 | 八个最硬的数字，挂在船体上真实会被读取的位置 |
 | **§1** | 行业综述 | 市场规模、相邻市场表、Gartner Top 25 |
-| **§2** | 行业动态 | 从胡塞武装首次袭击到美欧关税框架的32个月时间线 |
-| **§3** | 市场表现 | 12只股票面板（标记至7月17日）+ 实时刷新 + WCI运价航线 |
+| **§2** | 行业动态 | 从胡塞武装首次袭击到2026年10月运价回升的35个月时间线 |
+| **§3** | 市场表现 | 12个标的面板（标记至10月16日）+ 实时刷新 + WCI运价航线 |
 | **§4** | 热门议题 | 五大辩论，按热度与后果评级 |
 | **§5** | 重点趋势 | Gartner 2026技术雷达、采用门槛、近岸外包、情景赔率 |
 | **§6** | 结论 | 一架天平，称量结构性重构论点与现状论点 |
-| **来源** | 方法与来源 | 24条锚点来源登记册（K1–K24）、证据分级、测量纪律 |
+| **来源** | 方法与来源 | 26条锚点来源登记册（K1–K26）、证据分级、测量纪律 |
 
 ---
 
@@ -300,7 +300,7 @@ supply-chain-research-kimiagent/
 │   └── fonts.css           # ET Book 字体，base64 内联
 ├── js/
 │   ├── data.js             # 市场数据、Top 25、相邻市场（内联 JSON）
-│   ├── sources.js          # 24条锚点来源登记册（K1–K24）
+│   ├── sources.js          # 26条锚点来源登记册（K1–K26）
 │   ├── i18n.js             # 中英双语翻译系统
 │   ├── utils.js            # 共享工具（下钻卡片、框架构建器）
 │   ├── cover.js            # 封面动效 A——集装箱堆场递归
@@ -308,7 +308,7 @@ supply-chain-research-kimiagent/
 │   ├── cover-wire.js       # 封面动效 C/D——蓝图与开箱
 │   ├── chart-ship.js       # §0——带8个关键数字的船体图
 │   ├── chart-iso.js        # §1——行业等距规模图
-│   ├── chart-timeline.js   # §2——32个月事件时间线
+│   ├── chart-timeline.js   # §2——35个月事件时间线
 │   ├── chart-live.js       # §3——实时股票行情刷新组件
 │   ├── chart-multi.js      # §3——12只股票面板
 │   ├── chart-wci.js        # §3——Drewry WCI 运价航线
@@ -347,7 +347,7 @@ python3 -m http.server 8000
 # 然后访问 http://localhost:8000
 ```
 
-> §3 的实时行情刷新组件从 `stooq.com` 拉取数据——通过 `file://` 直接打开 `index.html` 时可能被 CORS 阻止。使用本地服务器可获得完整体验。当端点不可达时，组件会**诚实地回退**到7月17日的已验证快照，并显示可见标签。
+> §3 的实时行情刷新组件从 `stooq.com` 拉取数据——通过 `file://` 直接打开 `index.html` 时可能被 CORS 阻止。使用本地服务器可获得完整体验。当端点不可达时，组件会**诚实地回退**到10月16日的已验证快照，并显示可见标签。
 
 ### 方式 C — 使用预打包单文件
 
@@ -383,11 +383,11 @@ python3 bundle.py custom.html     # → custom.html
 
 ## 数据与方法
 
-- **市场数据**标记至 **2026年7月17日收盘价**（DHL.DE 与 MAERSK-B.CO：2026-07-16，为其最后交易日）
+- **市场数据**标记至 **2026年10月16日收盘价**（iFinD 日线收盘；标普500基准经由 FRED）
 - **YTD指数**为每周收盘价，以2026年首个周收盘价重定基为100
-- **WCI 前周数值**由已发布的环比百分比反推——标注为 `[derived]`
+- **WCI 截至2026-10-15**——前周数值由已发布的环比百分比反推，标注为 `[derived]`
 - **情景概率**是主观研究判断，不是市场隐含赔率
-- **来源登记册**（K1–K24）记录报告依赖的每个数字，注明日期的来源按层级分类：公司披露、券商研究、行业与官方、研究汇编
+- **来源登记册**（K1–K26）记录报告依赖的每个数字，注明日期的来源按层级分类：公司披露、券商研究、行业与官方、研究汇编
 - **无评级、无目标价、不构成投资建议**
 
 ---
@@ -397,13 +397,13 @@ python3 bundle.py custom.html     # → custom.html
 §3 刷新组件从 **stooq.com** 拉取实时股票报价——公开 CSV 接口，**无需 API 密钥、无需认证**。覆盖12个标的：
 
 ```
-UPS · FDX · DHL.DE · EXPD · CHRW · JBHT · XPO · GXO · ZIM · MAERSK-B.CO · MANH · ^SPX
+UPS · FDX · EXPD · CHRW · JBHT · XPO · GXO · ZIM · MANH · ODFL · SNDR · ^SPX
 ```
 
 行为：
 - 每次请求超时9秒
 - 结果缓存到 `localStorage`（`scm-live`）
-- 失败时：**可见标签**显示"实时端点不可达——显示已验证快照"，并回退至7月17日收盘价
+- 失败时：**可见标签**显示"实时端点不可达——显示已验证快照"，并回退至10月16日收盘价
 - **绝不静默**替换过期数据
 
 ---
@@ -441,9 +441,9 @@ UPS · FDX · DHL.DE · EXPD · CHRW · JBHT · XPO · GXO · ZIM · MAERSK-B.CO
 ---
 
 <div align="center">
-  <sub>Interactive research edition · Compiled 2026-07-19 · No investment advice</sub>
+  <sub>Interactive research edition · Compiled 2026-10-19 · No investment advice</sub>
   <br/>
-  <sub>交互研究版 · 编纂于2026-07-19 · 不构成投资建议</sub>
+  <sub>交互研究版 · 编纂于2026-10-19 · 不构成投资建议</sub>
   <br/>
   <sub>Evidence graded: company primary &gt; cross-check &gt; broker relay &gt; derived [flagged] · 证据分级：公司一手披露 &gt; 交叉核验 &gt; 券商转述 &gt; 推算值[标注]</sub>
 </div>
