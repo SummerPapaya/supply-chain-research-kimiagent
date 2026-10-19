@@ -66,21 +66,22 @@ window.DICT = {
   "CACHE": "缓存",
   "PULLING LIVE QUOTES…": "正在拉取实时行情…",
   // multi chart
-  "Twelve paths through the same six months, one scale": "同一六个月里的十二条路径，同一把尺",
+  "Twelve paths through the same nine-and-a-half months, one scale": "同一九个半月里的十二条路径，同一把尺",
+  "K26 · FRED SP500, close 2026-10-16": "K26 · FRED SP500，2026-10-16收盘",
   "WEEKLY CLOSES REBASED TO 100 · SHARED Y-AXIS ACROSS ALL PANELS · SEGMENT BUTTONS DRILL · CLICK A PANEL": "周收盘价重定基为100 · 全部面板共用Y轴 · 板块按钮下钻 · 点击面板",
   "Yahoo Finance weekly closes, 2026-01-23 → 2026-07-17 (K21)": "Yahoo Finance 周收盘价，2026-01-23 → 2026-07-17（K21）",
   "ALL": "全部", "PARCEL": "包裹", "FORWARD & BROKER": "货代与经纪", "OCEAN": "海运", "SOFTWARE": "软件", "BENCHMARK": "基准",
   // wci chart
-  "The weekly pulse: four lanes, all four up": "每周脉搏：四条航线，全线上涨",
+  "The weekly pulse: two oceans diverging": "每周脉搏：两洋分化",
   "SOLID = CURRENT ASSESSMENT · OUTLINE = PRIOR WEEK [DERIVED FROM PUBLISHED W/W %] · USD PER 40FT FEU · CLICK A PAIR": "实心 = 当前评估 · 描边 = 上周【由已发布周环比推算】 · 美元/40英尺箱 · 点击任意一组",
-  "Drewry WCI 2026-06-11 (K4) · prior week derived (K20)": "Drewry WCI 2026-06-11（K4） · 上周值为推算（K20）",
+  "Drewry WCI 2026-10-15 (K25) · prior week derived (K20)": "Drewry WCI 2026-10-15（K25） · 上周值为推算（K20）",
   " / 40ft": " / 40英尺箱",
   // hot topics (chart-dom)
   "Five debates, one heat scale": "五场辩论，同一把热度尺",
   "HEAT 1–5 = SALIENCE × CONSEQUENCE · ★ = RUNNING HOTTEST · CLICK ANY ROW FOR THE FULL BRIEF": "热度1–5 = 关注度 × 后果 · ★ = 当前最热 · 点击任意行查看完整简报",
   "K7–K11, K14 · dated anchors per topic": "K7–K11、K14 · 每个议题均有注明日期的锚点",
   "TOPIC": "议题", "HEAT": "热度", "HAPPENING NOW": "正在发生", "COST & NETWORK EFFECT": "成本与网络影响", "WHAT TO WATCH": "观察指标",
-  "★ = the two debates running hottest at mid-2026 · heat is a research judgment (K19)": "★ = 2026年年中最热的两场辩论 · 热度为研究判断（K19）",
+  "★ = the two debates running hottest as Q3 closes · heat is a research judgment (K19)": "★ = 三季度收官时最热的两场辩论 · 热度为研究判断（K19）",
   // trend radar
   "Gartner's 2026 radar, clustered into three budget themes": "Gartner 2026雷达，聚为三大预算主题",
   "EIGHT NAMED TECHNOLOGIES · THEME ORDER = WHERE 2026 BUDGETS ARE MOVING · CLICK A THEME": "八项具名技术 · 主题顺序 = 2026年预算流向 · 点击主题",
@@ -147,7 +148,7 @@ window.DICT = {
   "K19 · research judgment, 2026-07-19": "K19 · 研究判断，2026-07-19",
   // dashboard rail
   "CYCLE DASHBOARD": "周期仪表盘",
-  "WEEKLY · JAN → JUL 2026": "每周 · 2026年1月 → 7月",
+  "WEEKLY · JAN → OCT 2026": "每周 · 2026年1月 → 10月",
   "PANEL COHORT · YTD": "面板组合 · 年初至今",
   "QUOTES: ": "行情：",
   "NOW: ": "当前：",
@@ -155,7 +156,7 @@ window.DICT = {
   // dashboard rail — window titles/subs & stat labels
   "THE REWIRED NETWORK": "重构中的网络", "sector deep dive · 2026-07-17": "行业深度研究 · 2026-07-17",
   "§1 INDUSTRY OVERVIEW": "§1 行业综述", "layers & league table": "行业分层与领先榜",
-  "§2 INDUSTRY DYNAMICS": "§2 行业动态", "32 months of rewiring": "重构的32个月",
+  "§2 INDUSTRY DYNAMICS": "§2 行业动态", "35 months of rewiring": "重构的35个月",
   "§3 MARKET PERFORMANCE": "§3 市场表现", "panel vs S&P 500": "面板 vs 标普500",
   "§4 HOT TOPICS": "§4 热门议题", "five debates graded": "五场辩论，已评级",
   "§5 KEY TRENDS": "§5 重点趋势", "tech, gates, scenarios": "技术、门槛、情景",
@@ -163,6 +164,9 @@ window.DICT = {
   "LOGISTICS": "全球物流", "3PL": "3PL", "CAGR": "复合增速", "TRADE 26F": "贸易26预测",
   "SUEZ": "苏伊士", "EVENTS": "事件", "ERAS": "时代", "TARIFF": "关税",
   "LEADER": "领涨", "LAGGARD": "落后", "PANEL": "面板", "10 UP / 2 DN": "10涨 / 2跌",
+  "8 UP / 3 DN": "8涨 / 3跌", "ZIM +38%": "ZIM +38%", "CHRW −13%": "CHRW −13%",
+  "RESUMING": "复航中", "sector deep dive · 2026-10-16": "行业深度研究 · 2026-10-16",
+  "+11.9%": "+11.9%",
   "HOTTEST": "最热", "ALSO HOT": "次热", "PRICED IN": "已定价", "SLOW BURN": "慢变量",
   "TARIFFS": "关税", "AGENTIC AI": "智能体AI", "RED SEA": "红海", "CARBON": "碳",
   "AI DAILY": "AI日常使用", "CSCO PILOTS": "CSCO试点", "OPENINGS": "空缺岗位", "ROBOTS": "机器人",
@@ -184,14 +188,33 @@ window.DICT = {
   "The paradox beneficiary: <b>automation vendors</b> — reshoring was sold as a jobs story, but at 370K unfilled openings it is robots, at record installations, that staff the reshored factories.":
     "悖论受益者：<b>自动化厂商</b>——回岸曾被包装成就业故事，但在37万个空缺岗位面前，为回迁工厂“上岗”的，是创纪录装机的机器人。",
   // misc
+  // Q3 additions
+  "ROAD": "公路货运", "CONTRACT": "合同物流",
+  "$4,485": "$4,485", "DREWRY 2026-10-15": "DREWRY 2026-10-15",
+  "SUEZ RESUMING — THE RETURNING WAKE": "苏伊士复航——归来的尾迹",
+  "Suez resumption": "苏伊士复航",
+  "Vessel return adding Asia–Europe capacity through Q3; full normalization still conditional": "Q3船舶回归持续增加亚欧运力；全面正常化仍有条件",
+  "Per 40ft container; Shanghai→NY $10,075 (−1%)": "每40英尺箱；上海→纽约 10,075美元（−1%）",
+  "WCI PER 40FT · +3% W/W": "WCI 每40英尺箱 · 周环比+3%",
+  "Snapshot: iFinD close 2026-10-16 (K21) · benchmark: FRED (K26) · live: stooq CSV (K22)": "快照：iFinD 2026-10-16 收盘（K21） · 基准：FRED（K26） · 实时：stooq CSV（K22）",
+  "VERIFIED SNAPSHOT · 2026-10-16 CLOSE": "已核验快照 · 2026-10-16 收盘",
+  "K26 · FRED SP500, 2026-10-16": "K26 · FRED SP500，2026-10-16",
+  "K21 · iFinD, close 2026-10-16": "K21 · iFinD，2026-10-16 收盘",
+  "The tape splits three ways": "行情裂成三条路",
+  "Q4 2026 into 2027: four scenarios, graded odds": "2026Q4 至 2027：四个情景，分级赔率",
+  "Q3 pulse: two oceans, two stories": "三季度脉搏：两洋，两个故事",
   "Source · ": "来源 · ",
   "SCROLL": "滚动",
   "RECURSION LAYER": "递归第",
   " · EVERY SHIP, ONE CELL ON A LARGER CAPACITY MAP": " 层 · 每艘船，都是更大运力图上的一个格子",
   "THE HULL — FREIGHT FLOOR": "船体——运价地板",
-  "WCI $3,549 / 40ft · elevated band holds": "WCI 3,549美元/40英尺箱 · 高位区间维持",
+  "WCI $4,485 / 40ft · elevated band holds": "WCI 4,485美元/40英尺箱 · 高位区间维持",
   "THE HOLDS — CAPACITY VS CHOKEPOINTS": "货舱——运力 vs 咽喉要道",
-  "record orderbook meets Suez −60%": "创纪录订单簿 遇上 苏伊士−60%",
+  "record orderbook meets a resuming Suez": "创纪录订单簿 遇上 复航中的苏伊士",
+  "the tape broadened in Q3": "Q3 盘面扩散",
+  "Read across the row: <b>the tape broadened in Q3</b> — ocean (ZIM +38%) and freight-cycle leverage (XPO +37%) lead, forwarders and software re-rate (EXPD +32%, MANH +28%), while parcel stays flat and CH Robinson (−13%) is the story the market has <i>not</i> underwritten.":
+    "横向来看：<b>Q3 盘面扩散</b>——海运（ZIM +38%）与货运周期杠杆（XPO +37%）领涨，货代与软件估值重估（EXPD +32%、MANH +28%），包裹依旧走平，而 CH Robinson（−13%）正是市场<i>尚未</i>承保的故事。",
+  "iFinD & FRED weekly closes, 2026-01-02 → 2026-10-16 (K21, K26)": "iFinD 与 FRED 周度收盘价，2026-01-02 → 2026-10-16（K21、K26）",
   "THE DECK — VOLUME": "甲板——货量",
   "$11.97T logistics body, 1 stack ≈ $1T": "11.97万亿美元物流身躯，1垛 ≈ 1万亿美元",
   "THE BRIDGE — THE BRAIN": "舰桥——大脑",
@@ -214,9 +237,9 @@ window.DICT = {
 // ── RPT_CN: Chinese mirror of data-layer text fields (numbers untouched) ──
 window.RPT_CN = {
   market_snap_names: {
-    UPS: "联合包裹 (UPS)", FDX: "联邦快递 (FedEx)", DHL_DE: "DHL集团", EXPD: "Expeditors 国际",
-    CHRW: "C.H. Robinson 罗宾逊", JBHT: "J.B. Hunt 运输", XPO: "XPO 物流", GXO: "GXO 物流",
-    ZIM: "ZIM 以星航运", "MAERSK-B_CO": "A.P. 穆勒–马士基 B", MANH: "Manhattan Associates", GSPC: "标普500指数",
+    UPS: "联合包裹 (UPS)", FDX: "联邦快递 (FedEx)", EXPD: "Expeditors 国际", CHRW: "C.H. Robinson 罗宾逊",
+    JBHT: "J.B. Hunt 运输", XPO: "XPO 物流", GXO: "GXO 物流", ZIM: "ZIM 以星航运",
+    MANH: "Manhattan Associates", ODFL: "Old Dominion 货运", SNDR: "Schneider National 运输", GSPC: "标普500指数",
   },
   wci_lanes: [
     { lane: "上海 → 纽约", note: "跨太平洋东行即期价，40英尺箱" },
@@ -244,14 +267,14 @@ window.RPT_CN = {
       "地缘与关税情景工具——采购与流向的持续重规划"] },
   ],
   hot_topics: [
-    { t: "关税与贸易政策重构", happening: "美欧15%关税框架自2026-07-01生效；行业性豁免仍在谈判；CFO们正在重算网络成本",
+    { t: "关税与贸易政策重构", happening: "美欧15%基准关税已生效满一个季度；行业性豁免仍在逐行业谈判；美国进口需求稳健——跨太平洋即期价冲上10,075美元/40英尺箱",
       cost: "关税与合规成本上升；报关经纪需求激增",
       network: "采购转移加速——墨西哥/越南/印度受益；埃及纺织品出口同比+73%",
-      tech: "关税情景模块已成计划套件的入场券", watch: "更多行业性关税；报复螺旋；原产地规则审查" },
-    { t: "红海 / 苏伊士扰动", happening: "通行量仍比危机前低约60%；马士基一条MECL航线复航苏伊士，多数运力仍绕行非洲",
-      cost: "亚欧有效运力收缩；战争风险保费持续",
-      network: "好望角航线增加10–14天；班期可靠性结构性下降",
-      tech: "动态路由与可视化平台承接异常负荷", watch: "全面复航将释放运力、压制运价" },
+      tech: "关税情景模块已成计划套件的入场券", watch: "豁免谈判结果；报复螺旋；原产地规则审查；旺季海关数据" },
+    { t: "红海 / 苏伊士复航", happening: "船舶回归在Q3扩大——复航正在向亚欧航线增投运力；亚欧运价此前连跌13周，黄金周后回升",
+      cost: "亚欧运力转松；战争风险保费回落；承运人申报FAK涨价以捍卫运价",
+      network: "更短航程带回10–14天班期缓冲；全面正常化仍有条件",
+      tech: "动态路由围绕运河/好望角双通道重新优化", watch: "全面复航节奏——如今是2027年运价的下行风险" },
     { t: "智能体AI进入运营", happening: "51%的CSCO正在试点或部署智能体AI；41%的供应链员工已日常使用AI（MHI 2026）",
       cost: "早期证据：计划岗工时重新配置；运费审计自动化回本<12个月",
       network: "异常解决以分钟计而非以天计；控制塔变成智能体监督岗",
@@ -266,14 +289,14 @@ window.RPT_CN = {
       tech: "机器人与WES采用提前；电商履约中的协作机器人", watch: "移民政策；旺季工资脉冲" },
   ],
   odds: [
-    { name: "软着陆正常化", bound: "基准情景——需求稳住，运价缓降，无新增冲击",
-      ev: "货量恢复中；WCI脱离高点；库存再平衡完成；资本开支纪律维持" },
-    { name: "关税升级第二波", bound: "行业性关税扩大；报复；落地成本冲击重定价网络",
-      ev: "美欧政治日程；豁免谈判停滞；抢跑式进口脉冲" },
-    { name: "运力过剩运价战", bound: "苏伊士全面复航 + 创纪录新船交付淹没运力；即期价崩塌",
-      ev: "订单簿/船队比处高位；红海正常化中；承运人定价纪律脆弱" },
+    { name: "两洋正常化", bound: "基准情景——旺季后跨太平洋涨价退潮；亚欧消化回归的苏伊士运力而不崩盘",
+      ev: "WCI此前已自6→10月升势回落过一次；停航稳定在每周约6班；美国进口强劲但抢跑式旺季已过" },
+    { name: "关税升级第二波", bound: "行业性豁免破裂；新措施落地；落地成本冲击再度重定价网络",
+      ev: "美欧政治日程；15%对欧基准已满一季度而谈判未决；抢跑式进口脉冲延续" },
+    { name: "运力过剩运价战", bound: "苏伊士全面正常化叠加2026–27创纪录交付淹没运力；亚欧此前已连跌13周",
+      ev: "订单簿/船队比接近周期高位；承运人纪律脆弱；FAK涨价能否落地存疑" },
     { name: "黑天鹅供应冲击", bound: "霍尔木兹、台海、网络或气候事件切断关键动脉",
-      ev: "咽喉要道集中度上升；保险定价缓步抬升；单点故障已绘制" },
+      ev: "咽喉要道集中度上升；保险重新定价；单点故障已绘制" },
   ],
   verdict: {
     left_w: ["成本逻辑仍在——离岸经济性能扛住15%关税", "AI生产率真实——智能体工具削减计划与异常成本", "货运周期自筑底——承运人纪律+拆船托住运价"],
@@ -287,7 +310,7 @@ window.RPT_CN = {
     { panel: "美国仓储缺口", lab: "美国仓储与存储业空缺岗位", sub: "MHI 2026：58%的受访企业将招聘/留任列为头号挑战" },
     { panel: "AI在岗", lab: "日常使用AI的供应链员工（MHI 2026）", sub: "2024年约为20%；智能体AI被Gartner列为2026年头号趋势" },
   ],
-  phase: { names: ["危机", "复苏", "重构", "AI建设期", "下一周期"], curName: "重构 + AI建设期" },
+  phase: { names: ["危机", "复苏", "重构", "AI建设期", "下一周期"], curName: "重构深化 + AI规模化" },
   globe_nodes: { suez: "苏伊士", hormuz: "霍尔木兹", panama: "巴拿马", rotterdam: "鹿特丹", ny: "纽约", la: "洛杉矶", shanghai: "上海" },
   timeline: [
     { t: "胡塞袭击开始", note: "曼德海峡袭击迫使大规模绕行好望角；亚欧运价数周内翻三倍" },
@@ -305,7 +328,9 @@ window.RPT_CN = {
     { t: "Gartner供应链Top 25（2026）", note: "施耐德电气蝉联第1；AI编排成为决定性差异化" },
     { t: "WCI 3,549美元（周环比+3%）", note: "关税抢跑遇上运力消化，Drewry综合指数维持高位区间" },
     { t: "美欧15%关税框架生效", note: "对欧盟商品15%基准关税；行业性豁免继续谈判" },
-    { t: "本报告市场快照", note: "12家供应链股票面板，Yahoo Finance 2026-07-17收盘" },
+    { t: "亚欧运价13周连跌后触底", note: "黄金周停航潮标记底部；承运人申报10月FAK涨价4,500–4,800美元/40英尺箱" },
+    { t: "WCI反弹至4,485美元（周环比+3%）", note: "两洋分化：上海→纽约10,075美元、→洛杉矶7,884美元高位运行；→鹿特丹3,522美元、→热那亚3,945美元随苏伊士复航回升" },
+    { t: "本报告市场快照", note: "12家供应链股票面板，iFinD 2026-10-16收盘；标普500经由FRED" },
   ],
   gates: [
     { n: "数据质量与集成", basis: "智能体按数据行动；主数据差 = 自主决策错", score: 9, bypass: null, hot: true },
@@ -322,11 +347,11 @@ window.SRCS_CN = {
   K1:  { fact: "SCM软件市场 353亿美元（2025）→ 392亿美元（2026），复合增速+10.7%，2035年预计976亿美元", cite: "行业规模测算汇编（Precedence/Fortune Business Insights 共识区间），2026年版" },
   K2:  { fact: "全球物流市场 ≈ 11.97万亿美元（2025）；3PL板块 ≈ 1.8万亿美元", cite: "物流市场研究共识（Grand View / Armstrong & Associates 式估计），2026年展望版" },
   K3:  { fact: "WTO：世界货物贸易量增速 +1.9%（2026预测），因关税冲击下调", cite: "WTO《全球贸易展望与统计》，2026年4月" },
-  K4:  { fact: "Drewry世界集装箱指数综合值 3,549美元/40英尺箱，周环比+3%；上海→纽约 5,870美元（+7%）、→洛杉矶 4,683美元（+3%）、→鹿特丹 3,768美元（+5%）、→热那亚 5,139美元（+1%）", cite: "Drewry WCI 每周评估，2026年6月11日" },
+  K4:  { fact: "Drewry世界集装箱指数综合值 3,549美元/40英尺箱，周环比+3%——关税抢跑遇上运力消化，高位区间维持", cite: "Drewry WCI 每周评估，2026年6月11日" },
   K5:  { fact: "仓储自动化市场 ≈ 290亿美元（2025），复合增速15%左右；订单周期回升中", cite: "仓储自动化市场研究共识，2026年版" },
   K6:  { fact: "IFR：2024年工业机器人装机54.2万台；2026年装机量跟踪在70万台以上", cite: "国际机器人联合会《世界机器人》2025/2026更新" },
   K7:  { fact: "美欧关税框架生效：对欧盟商品15%基准关税；行业性豁免谈判中", cite: "欧盟委员会 / USTR 联合框架声明，2026年7月" },
-  K8:  { fact: "苏伊士通行量较危机前低约60%；马士基于2026-03-20复航一条MECL航线；多数运力仍绕好望角（+10–14天）", cite: "承运人公告（马士基）与苏伊士运河管理局通行统计，汇编于2026年6月" },
+  K8:  { fact: "苏伊士通行量在2026年Q3持续恢复；马士基于2026-03-20复航MECL航线；船舶回归正增加亚欧运力", cite: "承运人公告（马士基）与Drewry WCI评论，汇编于2026年10月" },
   K9:  { fact: "CBAM于2026-01-01进入付费阶段；CSRD范围被《综合指令》(EU) 2026/470收窄约80%；CSDDD推迟至2029", cite: "《欧盟官方公报》，指令 (EU) 2026/470；欧盟CBAM实施时间表" },
   K10: { fact: "51%的CSCO正在试点或部署智能体AI；智能体AI被Gartner列为2026年供应链头号技术趋势", cite: "Gartner《供应链技术趋势2026》；CSCO调研汇编，2026年5月" },
   K11: { fact: "MHI 2026：41%的供应链员工日常使用AI；58%将人才列为头号挑战；美国约37万个仓储岗位空缺", cite: "MHI年度行业报告 2026（与德勤合作），2026年3月" },
@@ -339,7 +364,9 @@ window.SRCS_CN = {
   K18: { fact: "霍尔木兹海峡：全球约20%的石油液体经此通过；2025-06交火后战争险重新定价", cite: "EIA咽喉要道统计；海事保险市场纪要，2026年6月" },
   K19: { fact: "情景概率为主观研究判断，非市场隐含赔率", cite: "本报告研究汇编与情景框架" },
   K20: { fact: "WCI上周值由已发布周环比反推【推算】", cite: "基于K4推算；方法说明见§3" },
-  K21: { fact: "12家供应链股票面板：价格、日涨跌、年初至今、市值、市盈率、股息率、52周区间", cite: "Yahoo Finance（经数据插件），2026-07-17收盘；DHL.DE 与 MAERSK-B.CO 为2026-07-16收盘" },
+  K21: { fact: "11只美股上市供应链股票面板：价格、日涨跌、年初至今、52周区间", cite: "iFinD（同花顺）日线收盘，2026-10-16" },
+  K25: { fact: "WCI航线明细：上海→纽约 10,075美元（周环比−1%）、→洛杉矶 7,884美元（+3%）、→鹿特丹 3,522美元（+6%）、→热那亚 3,945美元（+7%）；亚欧运价在连跌13周后回升；承运人申报10月19日起FAK涨价4,500–4,800美元/40英尺箱；苏伊士复航正增加运力", cite: "Drewry Supply Chain Advisors，WCI详细评估，2026年10月15日" },
+  K26: { fact: "基准：标普500日线收盘（序列SP500）", cite: "美联储经济数据（FRED），检索于2026-10-19" },
   K22: { fact: "实时行情刷新使用 stooq.com CSV 接口，失败时回退快照", cite: "实现说明——见§3刷新组件" },
   K23: { fact: "ILA/USMX 自动化条款推迟至2027年主合同谈判", cite: "ILA–USMX 联合声明，汇编于2026年4月" },
   K24: { fact: "关税生效日前的抢跑式进口脉冲扭曲跨太平洋货量", cite: "洛杉矶/纽约港吞吐量统计与承运人评论，2026年6月" },
@@ -366,7 +393,7 @@ if (CN && window.RPT) {
   document.documentElement.lang = "zh-CN";
   document.title = "供应链 2026 · 交互研究版";
   const md = document.querySelector('meta[name="description"]');
-  if (md) md.setAttribute("content", "2026年年中的供应链管理：390亿美元的软件市场正围绕智能体AI重建，而关税、咽喉要道与碳定价正在重构它所规划的实体网络。");
+  if (md) md.setAttribute("content", "2026年三季度末的供应链管理：390亿美元的软件市场正围绕智能体AI重建，而关税、苏伊士复航与碳定价正在重构它所规划的实体网络。");
 }
 
 // ── Swap static prose ([data-cn]) + wire the language toggle ──
