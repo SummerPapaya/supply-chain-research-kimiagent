@@ -3,9 +3,9 @@
   const host = document.getElementById("wci-chart");
   if (!host) return;
   const body = U.frame(host, {
-    title: T("The weekly pulse: four lanes, all four up"),
+    title: T("The weekly pulse: two oceans diverging"),
     sub: T("SOLID = CURRENT ASSESSMENT · OUTLINE = PRIOR WEEK [DERIVED FROM PUBLISHED W/W %] · USD PER 40FT FEU · CLICK A PAIR"),
-    src: T("Drewry WCI 2026-06-11 (K4) · prior week derived (K20)"),
+    src: T("Drewry WCI 2026-10-15 (K25) · prior week derived (K20)"),
   });
   const W = 924, H = 330, ml = 190, mr = 90, mt = 26;
   const svg = d3.select(body).append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("width", "100%").attr("height", H);
@@ -44,11 +44,11 @@
     .attr("font-family", "Menlo, Consolas, 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', monospace").attr("font-size", 11).attr("font-weight", 700)
     .attr("fill", d => d.chg >= 5 ? "#2251ff" : "#051c2c")
     .attr("opacity", REDUCE ? 1 : 0)
-    .text(d => `+${d.chg}%  $${d.v.toLocaleString("en-US")}`);
+    .text(d => `${d.chg >= 0 ? "+" : ""}${d.chg}%  $${d.v.toLocaleString("en-US")}`);
   rows.on("click", (ev, d) => U.showDrill({
     title: d.lane, value: "$" + d.v.toLocaleString("en-US") + T(" / 40ft"), delta: d.chg,
-    sub: CN ? `${d.note}。上周 $${d.prior.toLocaleString("en-US")}【由已发布周环比 +${d.chg}% 推算】。` : `${d.note}. Prior week $${d.prior.toLocaleString("en-US")} [derived from published +${d.chg}% w/w].`,
-    source: "K4 · Drewry WCI, 2026-06-11 · K20 derived prior week",
+    sub: CN ? `${d.note}。上周 $${d.prior.toLocaleString("en-US")}【由已发布周环比 ${d.chg >= 0 ? "+" : ""}${d.chg}% 推算】。` : `${d.note}. Prior week $${d.prior.toLocaleString("en-US")} [derived from published ${d.chg >= 0 ? "+" : ""}${d.chg}% w/w].`,
+    source: "K25 · Drewry WCI, 2026-10-15 · K20 derived prior week",
     x: ev.clientX, y: ev.clientY,
   }));
 

@@ -4,7 +4,7 @@
   const host = document.getElementById("timeline-chart");
   if (!host) return;
   const body = U.frame(host, {
-    title: T("Thirty-two months of rewiring, event by event"),
+    title: T("Thirty-five months of rewiring, event by event"),
     sub: T("RED FRAME = CRISIS · BLUE FRAME = CURRENT WINDOW · BLUE BAND = POLICY REWIRING ERA · CLICK A PLAQUE"),
     src: T("Anchors K7–K9, K12–K15, K21 · each plaque drills to its dated source"),
   });
