@@ -114,9 +114,9 @@
     g.globalAlpha = a;
     g.strokeStyle = "#ffffff"; g.lineWidth = 2;
     for (let i = 0; i < 5; i++) { g.beginPath(); g.moveTo(596 + i * 12, hullY + 14); g.lineTo(596 + i * 12, hullY + 50); g.stroke(); }
-    halo(g, "$3,549", 662, hullY + 28, { b: 1, s: 19, col: "#ffffff", haloCol: HULL });
+    halo(g, "$4,485", 662, hullY + 28, { b: 1, s: 19, col: "#ffffff", haloCol: HULL });
     halo(g, T("WCI PER 40FT · +3% W/W"), 662, hullY + 42, { mono: 1, s: 9, col: "#ffffff", haloCol: HULL });
-    halo(g, "DREWRY 2026-06-11", 662, hullY + 53, { mono: 1, s: 8.5, col: "#7d9bff", haloCol: HULL });
+    halo(g, "DREWRY 2026-10-15", 662, hullY + 53, { mono: 1, s: 8.5, col: "#7d9bff", haloCol: HULL });
     g.globalAlpha = 1;
   }, 300, 56);
   // 3 funnel → trade growth (smoke drifts right, clear of the 41% block)
@@ -155,7 +155,7 @@
     g.globalAlpha = a;
     g.strokeStyle = "#c22f4e"; g.lineWidth = 1.4; g.setLineDash([4, 4]);
     g.beginPath(); g.moveTo(118, hullY + 66); g.lineTo(40, hullY + 66); g.stroke(); g.setLineDash([]);
-    halo(g, T("−60% SUEZ TRANSITS — THE MISSING WAKE"), 26, hullY + 52, { mono: 1, s: 9.5, col: "#c22f4e" });
+    halo(g, T("SUEZ RESUMING — THE RETURNING WAKE"), 26, hullY + 52, { mono: 1, s: 9.5, col: "#c22f4e" });
     g.globalAlpha = 1;
   }, 220, 40);
   // 7 hull marking → SCM market (painted on the hull, direct fill — no halo on dark paint)
@@ -180,11 +180,11 @@
 
   const DRILLS = {
     1: { title: T("AI at work"), value: "41%", sub: T("Supply-chain staff using AI daily — up from ~20% in 2024"), source: "K11 · MHI Annual Industry Report 2026, 2026-03" },
-    2: { title: T("Drewry WCI composite"), value: "$3,549", delta: 3, sub: T("Per 40ft container; Shanghai→NY $5,870 (+7%)"), source: "K4 · Drewry WCI, 2026-06-11" },
+    2: { title: T("Drewry WCI composite"), value: "$4,485", delta: 3, sub: T("Per 40ft container; Shanghai→NY $10,075 (−1%)"), source: "K25 · Drewry WCI, 2026-10-15" },
     3: { title: T("World trade volume"), value: "+1.9%", sub: T("2026 forecast, downgraded on tariff shock"), source: "K3 · WTO, 2026-04" },
     4: { title: T("Global logistics market"), value: "$11.97T", sub: T("All modes, annual; 3PL segment ≈ $1.8T"), source: "K2 · industry consensus, 2026-01" },
     5: { title: T("EU–US tariff baseline"), value: "15%", sub: T("In force 2026-07-01; sectoral carve-outs under negotiation"), source: "K7 · EC/USTR framework, 2026-07-01" },
-    6: { title: T("Suez transits"), value: "−60%", sub: T("Vs pre-crisis; Maersk MECL resumed 2026-03-20, most capacity still via the Cape"), source: "K8 · carrier advisories, 2026-06" },
+    6: { title: T("Suez resumption"), value: "Q3", sub: T("Vessel return adding Asia–Europe capacity through Q3; full normalization still conditional"), source: "K8/K25 · carrier advisories & Drewry, 2026-10" },
     7: { title: T("SCM software market"), value: "$39.2B", sub: T("2026; $35.3B 2025 → $97.6B 2035E at +10.7% CAGR"), source: "K1 · market sizing consensus, 2026-03" },
     8: { title: T("CSRD scope reduction"), value: "−80%", sub: T("Omnibus Directive (EU) 2026/470; CSDDD deferred to 2029"), source: "K9 · EU Official Journal, 2026-02-24" },
   };

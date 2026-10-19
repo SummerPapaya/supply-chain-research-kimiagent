@@ -10,6 +10,8 @@
     { id: "tower", lw: 9, ld: 10.5, th: 5.2, z: 13.4, stern: true, col: "#42566a", name: "THE BRIDGE — THE BRAIN" },
   ];
   let k = 1, target = 1, t = 0, last = 0, raf = 0, yaw = Math.PI / 4;
+  let active = false;
+  const gate = U.visGate(document.getElementById("cover"));
   const clamp = U.clamp;
 
   function cam(w, h) {
@@ -114,7 +116,8 @@
     g.fillText(`${T("FIG. 2 · BLUEPRINT · 4 COLUMNS · SCALE NTS · ")}${T(k > 0.5 ? "EXPLODED — CLICK TO ASSEMBLE" : "ASSEMBLED — CLICK TO EXPLODE")}`, w - 40, h - 44);
     g.strokeStyle = "rgba(5,28,44,.4)"; g.strokeRect(w - 356, h - 64, 316, 30);
     g.textAlign = "left";
-    if (!REDUCE) raf = requestAnimationFrame(draw);
+    raf = 0;
+    if (!REDUCE && active && gate.visible()) raf = requestAnimationFrame(draw);
   }
 
   const B = U.bindCanvas(cv);
@@ -125,12 +128,13 @@
   addEventListener("resize", () => { if (cv.style.display !== "none") draw(last || 0); });
   window.COVER_W = {
     setActive(on) {
-      cancelAnimationFrame(raf);
+      cancelAnimationFrame(raf); raf = 0; active = on;
       if (on) { B.fit(); last = 0; k = target = 1;
         if (REDUCE) requestAnimationFrame(() => { B.fit(); draw(0); });
-        else raf = requestAnimationFrame(draw); }
+        else if (gate.visible()) raf = requestAnimationFrame(draw); }
     }
   };
+  gate.on(() => { if (active && !REDUCE && !raf) raf = requestAnimationFrame(draw); });
 
   // ── 4-way switcher (owns all covers) ──
   const cvs = { rec: document.getElementById("cover-canvas"), x: document.getElementById("cover-canvas-x"),
