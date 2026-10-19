@@ -43,7 +43,7 @@
   tbl.appendChild(tb); body.appendChild(tbl);
   const leg = document.createElement("p");
   leg.className = "chart-src";
-  leg.textContent = T("★ = the two debates running hottest at mid-2026 · heat is a research judgment (K19)");
+  leg.textContent = T("★ = the two debates running hottest as Q3 closes · heat is a research judgment (K19)");
   body.appendChild(leg);
 })();
 
@@ -164,7 +164,7 @@
   const host = document.getElementById("odds-chart");
   if (!host) return;
   const body = U.frame(host, {
-    title: T("H2 2026: four scenarios, graded odds"),
+    title: T("Q4 2026 into 2027: four scenarios, graded odds"),
     sub: T("RANGES = SUBJECTIVE PROBABILITY BANDS (LOW–HIGH), NOT MARKET-IMPLIED · ★ = BASE CASE · CLICK A PATH"),
     src: T("Research judgment (K19) on evidence from K4, K7, K8, K16"),
   });

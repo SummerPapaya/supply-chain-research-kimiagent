@@ -9,11 +9,11 @@
   const LAYERS = [
     { id: "hull",  lw: 46, ld: 13, th: 3.4, z: 0,
       col: { top: "#8e2438", side: "#5e1626", side2: "#701b2d" },
-      head: "THE HULL — FREIGHT FLOOR", sub: "WCI $3,549 / 40ft · elevated band holds",
+      head: "THE HULL — FREIGHT FLOOR", sub: "WCI $4,485 / 40ft · elevated band holds",
       thes: "hull", hot: false },
     { id: "holds", lw: 42, ld: 11.5, th: 2.6, z: 4.4,
       col: { top: "#12314a", side: "#0b2033", side2: "#0e2740" },
-      head: "THE HOLDS — CAPACITY VS CHOKEPOINTS", sub: "record orderbook meets Suez −60%",
+      head: "THE HOLDS — CAPACITY VS CHOKEPOINTS", sub: "record orderbook meets a resuming Suez",
       thes: "holds", hot: true },          // hardest constraint → semantic red label
     { id: "deck",  lw: 40, ld: 10.5, th: 3.2, z: 8.4,
       col: { top: "#2251ff", side: "#1233b8", side2: "#1a41d8" },
@@ -27,6 +27,8 @@
 
   // ── state ──
   let k = 0, target = 0, t = 0, last = 0, raf = 0, yaw = Math.PI / 4, mouseX = 0;
+  let active = false;
+  const gate = U.visGate(document.getElementById("cover"));
   let intro = null;   // D timeline state
   const clamp = U.clamp, lerp = U.lerp;
   const backOut = x => { const c = 1.70158 * 1.5; x = clamp(x, 0, 1) - 1; return 1 + (c + 1) * x * x * x + c * x * x; };
@@ -316,7 +318,8 @@
     g2.fillText(`${T("FIG. 1 · THE SHIP, IN LAYERS · ")}${state}${hint}`, w - 36, h - 30);
     g2.textAlign = "left";
 
-    if (!REDUCE) raf = requestAnimationFrame(draw);
+    raf = 0;
+    if (!REDUCE && active && gate.visible()) raf = requestAnimationFrame(draw);
   }
 
   const B = U.bindCanvas(cv);
@@ -338,15 +341,16 @@
 
   window.COVER_X = {
     setActive(on, opt) {
-      cancelAnimationFrame(raf);
+      cancelAnimationFrame(raf); raf = 0; active = on;
       if (on) {
         B.fit(); last = 0;
         if (opt && opt.intro && !REDUCE) startIntro();
         else { intro = null; k = target = 1; }
         if (REDUCE) { intro = null; k = target = 1; requestAnimationFrame(() => { B.fit(); draw(0); }); }
-        else raf = requestAnimationFrame(draw);
+        else if (gate.visible()) raf = requestAnimationFrame(draw);
       }
     },
     playIntro: startIntro,
   };
+  gate.on(() => { if (active && !REDUCE && !raf) raf = requestAnimationFrame(draw); });
 })();
