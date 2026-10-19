@@ -86,7 +86,6 @@ Fonts           ET Book (base64-inlined, CSP-safe)
 supply-chain-research-kimiagent/
 ├── index.html              # Entry point — loads all sections, scripts, styles
 ├── bundle.py               # Bundles everything into a single dist-single.html
-├── dist-single.html        # Pre-bundled single-file artifact (752 KB)
 ├── .gitignore
 ├── css/
 │   ├── style.css           # Base theme: white surface / deep-navy ink / electric-blue
@@ -142,16 +141,16 @@ python3 -m http.server 8000
 
 > The live quote refresh widget (§3) fetches from `stooq.com` — this may be blocked by CORS when opening `index.html` via `file://`. Use a local server for the full experience. When unreachable, it **honestly falls back** to the verified Oct 16 snapshot with a visible label.
 
-### Option C — Use the pre-bundled single file
+### Option C — Build the single-file bundle
 
-`dist-single.html` is a complete 752 KB self-contained artifact — all CSS, JS, fonts, and map data inlined. Open it anywhere, no server needed.
-
-### Rebuild the bundle
+`bundle.py` inlines all CSS, JS, fonts, and map data into one portable `dist-single.html`. The bundle is a local build artifact and is **not committed** to the repo — generate it on demand:
 
 ```bash
 python3 bundle.py                 # → dist-single.html
 python3 bundle.py custom.html     # → custom.html
 ```
+
+Open the output anywhere, no server needed.
 
 ---
 
@@ -227,7 +226,7 @@ This project is **dual-licensed**:
 | What | License | File |
 |:-----|:--------|:-----|
 | **Source code** (HTML, CSS, JS, `bundle.py`) | [MIT](https://opensource.org/licenses/MIT) | [LICENSE](LICENSE) |
-| **Report content** (research text, data, chart designs, `dist-single.html`) | [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) | [LICENSE-CONTENT](LICENSE-CONTENT) |
+| **Report content** (research text, data, chart designs) | [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) | [LICENSE-CONTENT](LICENSE-CONTENT) |
 
 You may freely reuse the code, including commercially. You may share and adapt the report content **non-commercially** with attribution.
 
@@ -293,7 +292,6 @@ You may freely reuse the code, including commercially. You may share and adapt t
 supply-chain-research-kimiagent/
 ├── index.html              # 入口——加载所有章节、脚本、样式
 ├── bundle.py               # 将所有内容打包为单个 dist-single.html
-├── dist-single.html        # 预打包单文件产物（752 KB）
 ├── .gitignore
 ├── css/
 │   ├── style.css           # 基础主题：白色表面 / 深海军蓝墨色 / 电蓝色
@@ -349,16 +347,16 @@ python3 -m http.server 8000
 
 > §3 的实时行情刷新组件从 `stooq.com` 拉取数据——通过 `file://` 直接打开 `index.html` 时可能被 CORS 阻止。使用本地服务器可获得完整体验。当端点不可达时，组件会**诚实地回退**到10月16日的已验证快照，并显示可见标签。
 
-### 方式 C — 使用预打包单文件
+### 方式 C — 构建单文件版本
 
-`dist-single.html` 是一个 752 KB 的完整自包含文件——所有 CSS、JS、字体和地图数据已内联。在任何地方打开，无需服务器。
-
-### 重新打包
+`bundle.py` 会将所有 CSS、JS、字体和地图数据内联为一个可移植的 `dist-single.html`。该文件是本地构建产物，**不随仓库提交**——需要时自行生成：
 
 ```bash
 python3 bundle.py                 # → dist-single.html
 python3 bundle.py custom.html     # → custom.html
 ```
+
+生成的文件在任何地方打开即可，无需服务器。
 
 ---
 
@@ -434,7 +432,7 @@ UPS · FDX · EXPD · CHRW · JBHT · XPO · GXO · ZIM · MANH · ODFL · SNDR 
 | 对象 | 许可协议 | 文件 |
 |:-----|:---------|:-----|
 | **源代码**（HTML、CSS、JS、`bundle.py`） | [MIT](https://opensource.org/licenses/MIT) | [LICENSE](LICENSE) |
-| **报告内容**（研究文本、数据、图表设计、`dist-single.html`） | [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans) | [LICENSE-CONTENT](LICENSE-CONTENT) |
+| **报告内容**（研究文本、数据、图表设计） | [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans) | [LICENSE-CONTENT](LICENSE-CONTENT) |
 
 代码可自由使用（包括商业用途）；报告内容可**非商业**地共享与演绎，但须署名。
 

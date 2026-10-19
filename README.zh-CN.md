@@ -68,9 +68,7 @@ python3 -m http.server 8000
 
 打开 [http://localhost:8000](http://localhost:8000)，使用语言切换按钮，并点击图表标注查看来源。
 
-如需便携版本，可直接打开 `dist-single.html`。样式、脚本、字体和地图数据均已包含在单个文件中。
-
-重新生成单文件版本：
+如需便携的单文件版本，可用 `bundle.py` 在本地生成——样式、脚本、字体和地图数据将全部内联其中（该产物不随仓库提交）：
 
 ```bash
 python3 bundle.py
@@ -100,7 +98,6 @@ python3 bundle.py custom-output.html
 ```text
 .
 ├── index.html              # 报告结构与叙事
-├── dist-single.html        # 便携式单文件版本
 ├── bundle.py               # 内联完整报告
 ├── css/
 │   ├── style.css           # 编辑型布局与图表系统
